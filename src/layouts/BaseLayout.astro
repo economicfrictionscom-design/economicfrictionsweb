@@ -7,7 +7,7 @@ const { title, description, wide = false } = Astro.props;
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/png" href="/economicfrictionsweb/logo.png" />
     
     <title>{title} | Economic Frictions</title>
@@ -37,24 +37,23 @@ const { title, description, wide = false } = Astro.props;
   
   <body class="bg-slate-50 text-slate-800 dark:bg-[#0B1120] dark:text-slate-300 font-sans flex flex-col min-h-screen antialiased transition-colors duration-300">
     
-    <header class="sticky top-0 z-50 bg-white/90 dark:bg-[#0B1120]/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
-      <nav class="max-w-5xl mx-auto px-6 h-20 flex justify-between items-center">
+    <header class="sticky top-0 z-50 bg-white/95 dark:bg-[#0B1120]/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
+      <nav class="max-w-5xl mx-auto px-6 py-4 md:h-20 flex flex-col md:flex-row justify-between items-center gap-4">
         
-        <a href="/economicfrictionsweb/" class="group flex items-center gap-4 transition-opacity hover:opacity-80">
-          <img src="/economicfrictionsweb/logo.png" alt="Economic Frictions Logo" class="w-10 h-10 rounded-full ring-2 ring-slate-100 dark:ring-slate-800" />
+        <a href="/economicfrictionsweb/" class="group flex items-center gap-3 transition-opacity hover:opacity-80">
+          <img src="/economicfrictionsweb/logo.png" alt="Logo" class="w-9 h-9 rounded-full ring-2 ring-slate-100 dark:ring-slate-800" />
           <span class="font-serif font-bold text-xl tracking-tight text-slate-900 dark:text-slate-100">
             Economic Frictions
           </span>
         </a>
         
-        <div class="flex items-center gap-8">
+        <div class="flex items-center gap-5 md:gap-8">
           <div class="flex flex-wrap justify-center gap-4 md:gap-6 text-[10px] md:text-xs font-bold tracking-widest text-slate-500 dark:text-slate-400 uppercase">
-            <a href="/economicfrictionsweb/archive" class="hover:text-blue-700 dark:hover:text-blue-400 transition-colors">All Blogs</a>
-            <a href="/economicfrictionsweb/list" class="hover:text-blue-700 dark:hover:text-blue-400 transition-colors">Quick List</a>
-            <a href="/economicfrictionsweb/search" class="hover:text-blue-700 dark:hover:text-blue-400 transition-colors">Search</a>
-            <a href="https://devanshj.in" target="_blank" class="hover:text-blue-700 dark:hover:text-blue-400 transition-colors">About</a>
+            <a href="/economicfrictionsweb/archive" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">All Blogs</a>
+            <a href="/economicfrictionsweb/list" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Quick List</a>
+            <a href="/economicfrictionsweb/search" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Search</a>
           </div>
-          <div class="w-px h-6 bg-slate-200 dark:bg-slate-800 hidden md:block"></div>
+          <div class="w-px h-5 bg-slate-200 dark:bg-slate-800 hidden md:block"></div>
           <ThemeToggle />
         </div>
       </nav>
@@ -76,24 +75,21 @@ const { title, description, wide = false } = Astro.props;
           </div>
         </div>
         <div>
-          <h4 class="font-bold text-xs tracking-widest uppercase text-slate-900 dark:text-white mb-6">Publication</h4>
+          <h4 class="font-bold text-xs tracking-widest uppercase text-slate-900 dark:text-white mb-6">Explore</h4>
           <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
-            <li><a href="/economicfrictionsweb/archive" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">All Blogs</a></li>
-            <li><a href="/economicfrictionsweb/list" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Quick List</a></li>
-            <li><a href="/economicfrictionsweb/tags" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Topics</a></li>
-            <li><a href="/economicfrictionsweb/rss.xml" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">RSS Feed</a></li>
+            <li><a href="/economicfrictionsweb/archive" class="hover:text-amber-600 transition-colors">All Blogs</a></li>
+            <li><a href="/economicfrictionsweb/list" class="hover:text-amber-600 transition-colors">Quick List</a></li>
+            <li><a href="/economicfrictionsweb/rss.xml" class="hover:text-amber-600 transition-colors">RSS Feed</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="font-bold text-xs tracking-widest uppercase text-slate-900 dark:text-white mb-6">Connect</h4>
+          <h4 class="font-bold text-xs tracking-widest uppercase text-slate-900 dark:text-white mb-6">Contact</h4>
           <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
-            <li><a href="https://devanshj.in" target="_blank" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About the Author</a></li>
-            <li><a href="mailto:economicfrictions.com@gmail.com" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a></li>
-            <li><a href="https://www.linkedin.com/in/devanshj2005" target="_blank" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">LinkedIn</a></li>
+            <li><a href="mailto:economicfrictions.com@gmail.com" class="hover:text-amber-600 transition-colors">Email</a></li>
+            <li><a href="https://www.linkedin.com/in/devanshj2005" target="_blank" class="hover:text-amber-600 transition-colors">LinkedIn</a></li>
           </ul>
         </div>
       </div>
     </footer>
-
   </body>
 </html>
