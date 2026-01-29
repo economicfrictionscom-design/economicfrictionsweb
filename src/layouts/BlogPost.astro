@@ -8,70 +8,63 @@ const { title, description, pubDate } = Astro.props;
 
 <BaseLayout title={title} description={description} wide={true}>
   
-  <header class="max-w-4xl mx-auto mt-16 mb-24 px-6 text-left">
-    <div class="text-amber-600 dark:text-amber-500 font-bold text-xs md:text-sm tracking-[0.25em] uppercase mb-6">
-      {pubDate && new Date(pubDate).toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      })}
+  <article class="max-w-4xl mx-auto mt-16 mb-24 px-6">
+    
+    <header class="text-left mb-16">
+      <div class="text-amber-600 dark:text-amber-500 font-bold text-xs md:text-sm tracking-[0.25em] uppercase mb-6">
+        {pubDate && new Date(pubDate).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })}
+      </div>
+
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-slate-900 dark:text-white leading-tight tracking-wide mb-8">
+        {title}
+      </h1>
+
+      <p class="text-xl md:text-2xl text-slate-500 dark:text-slate-400 italic font-serif leading-relaxed max-w-2xl mb-10">
+        {description}
+      </p>
+
+      <hr class="w-24 border-t-2 border-amber-400 opacity-60 ml-0" />
+    </header>
+
+    <div class="prose dark:prose-invert max-w-none font-serif text-lg md:text-xl text-slate-700 dark:text-slate-300">
+      <slot />
     </div>
 
-    <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-slate-900 dark:text-white leading-tight tracking-wide mb-8 pr-4">
-      {title}
-    </h1>
-
-    <p class="text-xl md:text-2xl text-slate-500 dark:text-slate-400 italic font-serif leading-relaxed max-w-2xl mb-10">
-      {description}
-    </p>
-
-    <hr class="w-24 border-t-2 border-amber-400 opacity-60 ml-0" />
-  </header>
-
-  <div class="xl:grid xl:grid-cols-[1fr_minmax(auto,800px)_1fr] gap-8 relative items-start">
-    <div class="hidden xl:block"></div>
-
-    <article class="min-w-0 max-w-4xl mx-auto xl:mx-0">
-      <div class="prose dark:prose-invert max-w-none drop-cap font-serif text-lg md:text-xl text-slate-700 dark:text-slate-300">
-        <slot />
-      </div>
-
-      <div class="mt-20 border-t border-slate-200 dark:border-slate-800 pt-10">
-        
-        <div class="text-center mb-16">
-          <p class="text-slate-400 text-sm font-bold tracking-widest uppercase mb-4">Share this essay</p>
-          <div class="flex justify-center gap-4">
-            <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied!')" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-slate-600 dark:text-slate-300 text-xs font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
-              Copy Link
-            </button>
-            <a href={`https://www.linkedin.com/sharing/share-offsite/?url=CURRENT_URL`} target="_blank" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-slate-600 dark:text-slate-300 text-xs font-bold hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 transition-colors">
-              LinkedIn
-            </a>
-          </div>
-        </div>
-
-        <div class="flex items-center gap-6 p-8 bg-slate-50 dark:bg-slate-800/30 rounded-2xl border border-slate-100 dark:border-slate-800 mb-16">
-          <img src="/economicfrictionsweb/logo.png" alt="Devansh" class="w-16 h-16 rounded-full ring-2 ring-amber-500/20" />
-          <div>
-            <h4 class="font-serif font-bold text-lg text-slate-900 dark:text-white">About the Author</h4>
-            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-              Devansh is a student at IIT Bhubaneswar. He writes about economic frictions, market mechanisms, and the intersection of data and consumer behavior.
-            </p>
-          </div>
-        </div>
-
-        <div class="mb-16">
-           <h3 class="font-serif font-bold text-2xl text-slate-900 dark:text-white mb-8">Discussion</h3>
-           <Comments />
-        </div>
-
-        <div id="bottom-subscribe-trigger">
-          <Subscribe />
+    <div class="mt-20 border-t border-slate-200 dark:border-slate-800 pt-10">
+      
+      <div class="text-center mb-16">
+        <p class="text-slate-400 text-sm font-bold tracking-widest uppercase mb-4">Share this essay</p>
+        <div class="flex justify-center gap-4">
+          <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied!')" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-slate-600 dark:text-slate-300 text-xs font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+            Copy Link
+          </button>
+          <a href={`https://www.linkedin.com/sharing/share-offsite/?url=CURRENT_URL`} target="_blank" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-slate-600 dark:text-slate-300 text-xs font-bold hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 transition-colors">
+            LinkedIn
+          </a>
         </div>
       </div>
-    </article>
 
-    <aside id="floating-sidebar" class="hidden xl:block sticky top-32 w-[280px] ml-auto transition-opacity duration-500 opacity-100">
-      <div class="p-6 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
-        <h3 class="font-serif font-bold text-lg text-slate-900 dark:text-white mb-2">Economic Frictions</h3>
-        <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 leading-relaxed
+      <div class="mb-16">
+         <h3 class="font-serif font-bold text-2xl text-slate-900 dark:text-white mb-8">Discussion</h3>
+         <Comments />
+      </div>
+
+      <div>
+        <Subscribe />
+      </div>
+      
+    </div>
+  </article>
+
+  <script is:inline>
+    // Simple logic to ensure the share link uses the current URL
+    const url = encodeURIComponent(window.location.href);
+    document.querySelectorAll('a[href*="CURRENT_URL"]').forEach(link => {
+      link.href = link.href.replace('CURRENT_URL', url);
+    });
+  </script>
+</BaseLayout>
