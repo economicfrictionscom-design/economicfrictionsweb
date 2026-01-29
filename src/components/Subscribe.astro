@@ -8,14 +8,27 @@
     <h3 class="font-serif font-bold text-2xl text-slate-900 dark:text-white mb-4">
       Subscribe to Economic Frictions
     </h3>
+    <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm">
+      Get independent analysis delivered to your inbox.
+    </p>
     
-    <form class="subscribe-form flex flex-col sm:flex-row gap-3">
+    <form
+      action="https://buttondown.email/api/emails/embed-subscribe/devansh"
+      method="post"
+      target="popupwindow"
+      onsubmit="window.open('https://buttondown.email/api/emails/embed-subscribe/devansh', 'popupwindow')"
+      class="subscribe-form flex flex-col sm:flex-row gap-3"
+    >
       <input 
         type="email" 
+        name="email" 
         placeholder="your@email.com" 
         required
         class="w-full px-5 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder-slate-400 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all"
       />
+      
+      <input type="hidden" value="1" name="embed" />
+      
       <button 
         type="submit" 
         class="px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold rounded-lg hover:bg-amber-600 dark:hover:bg-amber-400 transition-colors whitespace-nowrap"
@@ -24,22 +37,8 @@
       </button>
     </form>
 
-    <div class="success-message hidden mt-4 p-3 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-sm font-semibold rounded-lg">
-      Welcome aboard. You've been added to the list.
-    </div>
+    <p class="text-xs text-slate-400 mt-4">
+      Instant unsubscribe link included in every email.
+    </p>
   </div>
-
-  <script is:inline>
-    // This script handles the "fake" submission so the page doesn't reload
-    const form = document.querySelector('.subscribe-form');
-    const msg = document.querySelector('.success-message');
-
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault(); // Stop the redirect
-        form.classList.add('opacity-50', 'pointer-events-none'); // Disable form
-        msg.classList.remove('hidden'); // Show success message
-      });
-    }
-  </script>
 </div>
