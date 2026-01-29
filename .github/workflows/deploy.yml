@@ -51,11 +51,10 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - name: Build with Astro
-        run: |
-          ${{ steps.detect-package-manager.outputs.runner }} astro build \
-            --site "${{ steps.configure-pages.outputs.origin }}" \
-            --base "${{ steps.configure-pages.outputs.base_path }}"
+      - - name: Build with Astro
+  run: |
+    ${{ steps.detect-package-manager.outputs.runner }} astro build
+    
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
