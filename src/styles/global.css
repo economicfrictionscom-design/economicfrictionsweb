@@ -5,34 +5,37 @@
   --font-serif: 'Libre Baskerville', Georgia, serif;
 }
 
-/* CRITICAL FIX: This line makes the button work again */
+/* CRITICAL FIX: Ensures Dark Mode toggle works */
 @variant dark (&:where(.dark, .dark *));
 
-/* Professional Selection Color (Gold Text Highlight) */
+/* Professional Selection Color (Gold Highlight) */
 ::selection {
-  background-color: #fcd34d; /* Amber-300 */
-  color: #0f172a; /* Slate-900 */
-}
-
-/* Dark Mode Selection */
-:root.dark ::selection {
-  background-color: #fbbf24; /* Amber-400 */
-  color: #000000;
+  background-color: #fcd34d;
+  color: #0f172a;
 }
 
 /* Base Settings */
-:root {
-  color-scheme: light;
-}
-:root.dark {
-  color-scheme: dark;
-}
+:root { color-scheme: light; }
+:root.dark { color-scheme: dark; }
 
 html, body {
-  @apply antialiased;
+  @apply antialiased transition-colors duration-300;
 }
+
+/* --- BLOG CONTENT TYPOGRAPHY FIXES --- */
+
+/* Fixes No Spacing Between Paragraphs */
+.prose p {
+  @apply mb-8 leading-relaxed;
+}
+
+/* Fixes No Bold Texts */
+.prose strong, .prose b {
+  @apply font-bold text-slate-900 dark:text-white;
+}
+
 /* Magazine Drop Cap Style */
-.drop-cap::first-letter {
+.drop-cap p:first-of-type::first-letter {
   float: left;
   font-family: 'Libre Baskerville', serif;
   font-weight: 700;
@@ -43,6 +46,11 @@ html, body {
   color: #d97706; /* Amber-600 */
 }
 
-:root.dark .drop-cap::first-letter {
+:root.dark .drop-cap p:first-of-type::first-letter {
   color: #fbbf24; /* Amber-400 */
+}
+
+/* Centers Blog Images & Adds Project Styling */
+.prose img {
+  @apply rounded-xl mx-auto shadow-lg border border-slate-200 dark:border-slate-800 my-12;
 }
