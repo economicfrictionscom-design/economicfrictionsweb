@@ -1,64 +1,165 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+// 1. Fetch all blog posts
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+// 2. Prepare the data for the search engine
+// We strip the markdown content to plain text to make searching cleaner
+const searchIndex = posts.map(post => ({
+  title: post.data.title,
+  slug: post.slug,
+  description: post.data.description,
+  date: post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
+  // Normalize content for case-insensitive search
+  content: post.body.toLowerCase(), 
+  titleLower: post.data.title.toLowerCase(),
+  // Keep original body for snippet generation
+  rawBody: post.body 
+}));
 ---
 
-<BaseLayout title="Search" description="Search Economic Frictions">
-  <section class="max-w-4xl mx-auto mt-8">
-    <h1 class="text-3xl font-serif font-bold text-stone-900 dark:text-stone-100 mb-8">Search</h1>
+<BaseLayout title="Search" description="Search the Economic Frictions archive">
+  <section class="max-w-3xl mx-auto mt-12 mb-24">
     
-    <div class="relative mb-8">
+    <div class="mb-12 text-center">
+      <h1 class="text-4xl font-serif font-bold text-slate-900 dark:text-white mb-4">Search</h1>
+      <p class="text-slate-500 dark:text-slate-400">
+        Find analysis by title or keyword inside the articles.
+      </p>
+    </div>
+
+    <div class="relative mb-16">
       <input 
         type="text" 
         id="search-input" 
-        placeholder="Type to search articles..." 
-        class="w-full p-4 pl-12 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-900 dark:text-stone-100 focus:ring-2 focus:ring-blue-500 outline-none transition-colors text-lg"
+        placeholder="Type to search (e.g., 'inflation', 'rbi', 'market')..." 
+        class="w-full p-5 pl-6 text-xl font-serif rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 outline-none transition-all shadow-sm"
+        autofocus
       />
-      <svg class="w-6 h-6 text-stone-400 absolute left-4 top-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+      <div class="absolute right-6 top-6 text-slate-400">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </div>
     </div>
 
-    <ul id="search-results" class="space-y-6"></ul>
-    <p id="no-results" class="hidden text-stone-500 text-center mt-8">No posts found.</p>
+    <div id="results-container" class="space-y-16 hidden">
+      
+      <div id="title-results-section" class="hidden">
+        <h3 class="flex items-center gap-3 font-serif font-bold text-lg text-amber-600 dark:text-amber-500 mb-6 border-b border-amber-200 dark:border-amber-900/50 pb-2">
+          <span class="bg-amber-100 dark:bg-amber-900/50 p-1.5 rounded-md">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+          </span>
+          Matches in Titles
+        </h3>
+        <ul id="title-list" class="space-y-4"></ul>
+      </div>
+
+      <div id="content-results-section" class="hidden">
+        <h3 class="flex items-center gap-3 font-serif font-bold text-lg text-slate-500 dark:text-slate-400 mb-6 border-b border-slate-200 dark:border-slate-800 pb-2">
+          <span class="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          </span>
+          Mentions in Articles
+        </h3>
+        <ul id="content-list" class="space-y-6"></ul>
+      </div>
+
+    </div>
+
+    <div id="no-results" class="hidden text-center py-12">
+      <p class="text-xl font-serif text-slate-400 italic">No matches found.</p>
+    </div>
+
   </section>
 
-  <script is:inline>
-    let posts = [];
-    fetch('/search.json').then(res => res.json()).then(data => { posts = data; });
-
-    const searchInput = document.getElementById('search-input');
-    const resultsList = document.getElementById('search-results');
+  <script define:vars={{ searchIndex }}>
+    const input = document.getElementById('search-input');
+    const container = document.getElementById('results-container');
+    const titleSection = document.getElementById('title-results-section');
+    const contentSection = document.getElementById('content-results-section');
+    const titleList = document.getElementById('title-list');
+    const contentList = document.getElementById('content-list');
     const noResults = document.getElementById('no-results');
 
-    searchInput.addEventListener('input', (e) => {
-      const term = e.target.value.toLowerCase();
-      resultsList.innerHTML = '';
-      
-      if (term.length < 2) {
-        noResults.classList.add('hidden');
+    input.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+
+      // Reset
+      titleList.innerHTML = '';
+      contentList.innerHTML = '';
+      titleSection.classList.add('hidden');
+      contentSection.classList.add('hidden');
+      noResults.classList.add('hidden');
+
+      if (query.length === 0) {
+        container.classList.add('hidden');
         return;
       }
 
-      const filtered = posts.filter(post => 
-        post.title.toLowerCase().includes(term) || 
-        post.description.toLowerCase().includes(term) ||
-        (post.tags && post.tags.some(tag => tag.toLowerCase().includes(term)))
-      );
+      container.classList.remove('hidden');
 
-      if (filtered.length === 0) {
-        noResults.classList.remove('hidden');
-      } else {
-        noResults.classList.add('hidden');
-        filtered.forEach(post => {
-          const date = new Date(post.date).toLocaleDateString('en-US', {year: 'numeric', month: 'short', day: 'numeric'});
-          const item = document.createElement('li');
-          item.innerHTML = `
-            <a href="${post.slug}" class="block p-6 bg-white dark:bg-[#1d1e20] border border-stone-200 dark:border-stone-700 rounded-lg hover:border-blue-500 transition-colors">
-              <h3 class="text-xl font-serif font-bold text-stone-900 dark:text-stone-100 mb-2">${post.title}</h3>
-              <p class="text-stone-600 dark:text-stone-400 text-sm mb-2">${post.description}</p>
-              <span class="text-xs font-mono text-stone-400 uppercase">${date}</span>
+      let hasTitleMatch = false;
+      let hasContentMatch = false;
+
+      searchIndex.forEach(post => {
+        // CHECK 1: Title Match
+        if (post.titleLower.includes(query)) {
+          hasTitleMatch = true;
+          const li = document.createElement('li');
+          li.innerHTML = `
+            <a href="/economicfrictionsweb/blog/${post.slug}" class="block group p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-amber-500 dark:hover:border-amber-500 bg-white dark:bg-slate-900 transition-all">
+              <div class="flex justify-between items-start">
+                <h4 class="font-serif font-bold text-lg text-slate-900 dark:text-white group-hover:text-amber-600 transition-colors">${post.title}</h4>
+                <span class="text-xs font-mono text-slate-400 shrink-0 mt-1">${post.date}</span>
+              </div>
+              <p class="text-sm text-slate-500 mt-2 line-clamp-1">${post.description}</p>
             </a>
           `;
-          resultsList.appendChild(item);
-        });
+          titleList.appendChild(li);
+        }
+
+        // CHECK 2: Content Match (Only if not already in title, or if you want both, keep it)
+        // We check content regardless to show context
+        if (post.content.includes(query)) {
+          hasContentMatch = true;
+          
+          // Generate Snippet
+          const index = post.content.indexOf(query);
+          const start = Math.max(0, index - 60);
+          const end = Math.min(post.content.length, index + 60);
+          let snippet = post.rawBody.substring(start, end);
+          
+          // Highlight the query word
+          const regex = new RegExp(`(${query})`, 'gi');
+          snippet = snippet.replace(regex, '<mark class="bg-amber-200 dark:bg-amber-900 text-slate-900 dark:text-white px-1 rounded-sm">$1</mark>');
+
+          const li = document.createElement('li');
+          li.innerHTML = `
+            <a href="/economicfrictionsweb/blog/${post.slug}" class="block group p-4 rounded-xl border border-dashed border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Found inside:</span>
+                <span class="font-serif font-bold text-slate-700 dark:text-slate-200 group-hover:text-amber-600 transition-colors">${post.title}</span>
+              </div>
+              <p class="font-serif text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                "...${snippet}..."
+              </p>
+            </a>
+          `;
+          contentList.appendChild(li);
+        }
+      });
+
+      // Toggle Visibility
+      if (hasTitleMatch) titleSection.classList.remove('hidden');
+      if (hasContentMatch) contentSection.classList.remove('hidden');
+      
+      if (!hasTitleMatch && !hasContentMatch) {
+        noResults.classList.remove('hidden');
       }
     });
   </script>
