@@ -37,14 +37,26 @@ const { title, description, pubDate } = Astro.props;
       </div>
 
       <div class="mt-20 border-t border-slate-200 dark:border-slate-800 pt-10">
+        
         <div class="text-center mb-16">
           <p class="text-slate-400 text-sm font-bold tracking-widest uppercase mb-4">Share this essay</p>
           <div class="flex justify-center gap-4">
             <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied!')" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-slate-600 dark:text-slate-300 text-xs font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
               Copy Link
             </button>
-            <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=CURRENT_URL`} target="_blank" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-slate-600 dark:text-slate-300 text-xs font-bold hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 transition-colors">Twitter / X</a>
-            <a href={`https://www.linkedin.com/sharing/share-offsite/?url=CURRENT_URL`} target="_blank" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-slate-600 dark:text-slate-300 text-xs font-bold hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 transition-colors">LinkedIn</a>
+            <a href={`https://www.linkedin.com/sharing/share-offsite/?url=CURRENT_URL`} target="_blank" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-slate-600 dark:text-slate-300 text-xs font-bold hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 transition-colors">
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6 p-8 bg-slate-50 dark:bg-slate-800/30 rounded-2xl border border-slate-100 dark:border-slate-800 mb-16">
+          <img src="/economicfrictionsweb/logo.png" alt="Devansh" class="w-16 h-16 rounded-full ring-2 ring-amber-500/20" />
+          <div>
+            <h4 class="font-serif font-bold text-lg text-slate-900 dark:text-white">About the Author</h4>
+            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+              Devansh is a student at IIT Bhubaneswar. He writes about economic frictions, market mechanisms, and the intersection of data and consumer behavior.
+            </p>
           </div>
         </div>
 
@@ -62,20 +74,4 @@ const { title, description, pubDate } = Astro.props;
     <aside id="floating-sidebar" class="hidden xl:block sticky top-32 w-[280px] ml-auto transition-opacity duration-500 opacity-100">
       <div class="p-6 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
         <h3 class="font-serif font-bold text-lg text-slate-900 dark:text-white mb-2">Economic Frictions</h3>
-        <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">Independent analysis on markets and behavior.</p>
-        <form class="sidebar-form flex flex-col gap-3">
-          <input type="email" placeholder="Email address" required class="w-full px-4 py-2 text-sm rounded-md border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-amber-500 outline-none transition-all" />
-          <button type="submit" class="w-full px-4 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-bold rounded-md hover:bg-amber-600 dark:hover:bg-amber-400 transition-colors">Join Free</button>
-        </form>
-      </div>
-    </aside>
-  </div>
-
-  <script is:inline>
-    // Social Links & Sidebar Logic remains the same
-    const url = encodeURIComponent(window.location.href);
-    document.querySelectorAll('a[href*="CURRENT_URL"]').forEach(link => {
-      link.href = link.href.replace('CURRENT_URL', url);
-    });
-  </script>
-</BaseLayout>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 leading-relaxed
