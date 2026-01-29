@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Get all posts and sort by date (newest first)
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout title="Home" description="Economic Frictions - Independent Analysis">
+  
+  <section class="mb-12 border-b border-stone-200 pb-8">
+    <h1 class="text-4xl md:text-6xl font-serif font-bold text-stone-900 tracking-tight mb-4">
+      Economic Frictions
+    </h1>
+    <p class="text-xl text-stone-600 font-serif max-w-2xl">
+      Exploring the hidden drag on markets, policy, and human behavior.
+    </p>
+  </section>
+
+  <section>
+    <ul class="space-y-12">
+      {posts.map((post) => (
+        <li class="group">
+          <a href={`/blog/${post.slug}/`} class="block">
+            
+            <div class="text-xs font-bold tracking-widest text-stone-400 uppercase mb-2">
+              {post.data.pubDate.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </div>
+
+            <h2 class="text-3xl font-serif font-bold text-stone-900 group-hover:text-blue-800 transition mb-3">
+              {post.data.title}
+            </h2>
+
+            <p class="text-lg text-stone-600 font-serif leading-relaxed mb-3 max-w-3xl">
+              {post.data.description}
+            </p>
+
+            <div class="text-sm font-semibold text-blue-700 group-hover:underline">
+              Read Essay &rarr;
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+</BaseLayout>

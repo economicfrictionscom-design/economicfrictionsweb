@@ -1,0 +1,149 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Subscribe from '../components/Subscribe.astro';
+import Comments from '../components/Comments.astro';
+
+const { title, description, pubDate } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} wide={true}>
+  
+  <header class="max-w-4xl mx-auto mt-16 mb-24 px-6 text-left">
+    
+    <div class="text-amber-600 dark:text-amber-500 font-bold text-xs md:text-sm tracking-[0.25em] uppercase mb-6">
+      {pubDate && new Date(pubDate).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })}
+    </div>
+
+    <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-slate-900 dark:text-white leading-tight tracking-wide mb-8 pr-4">
+      {title}
+    </h1>
+
+    <p class="text-xl md:text-2xl text-slate-500 dark:text-slate-400 italic font-serif leading-relaxed max-w-2xl mb-10">
+      {description}
+    </p>
+
+    <hr class="w-24 border-t-2 border-amber-400 opacity-60 ml-0" />
+    
+  </header>
+
+  <div class="xl:grid xl:grid-cols-[1fr_minmax(auto,800px)_1fr] gap-8 relative items-start">
+    
+    <div class="hidden xl:block"></div>
+
+    <article class="min-w-0 max-w-4xl mx-auto xl:mx-0">
+      
+      <div class="prose prose-xl prose-slate dark:prose-invert max-w-none prose-headings:font-sans prose-headings:font-bold prose-a:text-blue-700 dark:prose-a:text-blue-400 hover:prose-a:text-blue-900 dark:hover:prose-a:text-blue-300 font-serif">
+        <slot />
+      </div>
+
+      <div class="mt-20 border-t border-slate-200 dark:border-slate-800 pt-10">
+        
+        <div class="text-center mb-16">
+          <p class="text-slate-400 text-sm font-bold tracking-widest uppercase mb-4">Share this essay</p>
+          <div class="flex justify-center gap-4">
+            <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied!')" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-slate-600 dark:text-slate-300 text-xs font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+              Copy Link
+            </button>
+            <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=CURRENT_URL`} target="_blank" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-slate-600 dark:text-slate-300 text-xs font-bold hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 transition-colors">
+              Twitter / X
+            </a>
+            <a href={`https://www.linkedin.com/sharing/share-offsite/?url=CURRENT_URL`} target="_blank" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-slate-600 dark:text-slate-300 text-xs font-bold hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 transition-colors">
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <div class="mb-16">
+           <h3 class="font-serif font-bold text-2xl text-slate-900 dark:text-white mb-8">Discussion</h3>
+           <Comments />
+        </div>
+
+        <div id="bottom-subscribe-trigger">
+          <Subscribe />
+        </div>
+        
+      </div>
+    </article>
+
+    <aside 
+      id="floating-sidebar" 
+      class="hidden xl:block sticky top-32 w-[280px] ml-auto transition-opacity duration-500 opacity-100"
+    >
+      <div class="p-6 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+        <h3 class="font-serif font-bold text-lg text-slate-900 dark:text-white mb-2">
+          Economic Frictions
+        </h3>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">
+          Independent analysis on markets and behavior.
+        </p>
+        
+        <form class="sidebar-form flex flex-col gap-3">
+          <input 
+            type="email" 
+            placeholder="Email address" 
+            required
+            class="w-full px-4 py-2 text-sm rounded-md border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all"
+          />
+          <button 
+            type="submit" 
+            class="w-full px-4 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-bold rounded-md hover:bg-amber-600 dark:hover:bg-amber-400 transition-colors"
+          >
+            Join Free
+          </button>
+        </form>
+        
+        <div class="sidebar-success hidden mt-3 text-xs text-green-600 dark:text-green-400 font-bold text-center">
+          ✓ Added to list
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+  <script is:inline>
+    // 1. Social Links
+    const url = encodeURIComponent(window.location.href);
+    document.querySelectorAll('a[href*="CURRENT_URL"]').forEach(link => {
+      link.href = link.href.replace('CURRENT_URL', url);
+    });
+
+    // 2. Sidebar Form Logic
+    const sideForm = document.querySelector('.sidebar-form');
+    const sideMsg = document.querySelector('.sidebar-success');
+    if (sideForm) {
+      sideForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        sideForm.classList.add('opacity-50', 'pointer-events-none');
+        sideMsg.classList.remove('hidden');
+      });
+    }
+
+    // 3. Smart Vanish Logic
+    const bottomBox = document.getElementById('bottom-subscribe-trigger');
+    const sidebar = document.getElementById('floating-sidebar');
+
+    if (bottomBox && sidebar) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // When bottom box is visible -> Hide sidebar
+            sidebar.classList.remove('opacity-100');
+            sidebar.classList.add('opacity-0', 'pointer-events-none');
+          } else {
+            // When bottom box is NOT visible -> Show sidebar
+            sidebar.classList.remove('opacity-0', 'pointer-events-none');
+            sidebar.classList.add('opacity-100');
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+      observer.observe(bottomBox);
+    }
+  </script>
+
+</BaseLayout>

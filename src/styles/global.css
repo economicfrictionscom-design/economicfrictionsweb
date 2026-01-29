@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Libre Baskerville', Georgia, serif;
+}
+
+/* CRITICAL FIX: This line makes the button work again */
+@variant dark (&:where(.dark, .dark *));
+
+/* Professional Selection Color (Gold Text Highlight) */
+::selection {
+  background-color: #fcd34d; /* Amber-300 */
+  color: #0f172a; /* Slate-900 */
+}
+
+/* Dark Mode Selection */
+:root.dark ::selection {
+  background-color: #fbbf24; /* Amber-400 */
+  color: #000000;
+}
+
+/* Base Settings */
+:root {
+  color-scheme: light;
+}
+:root.dark {
+  color-scheme: dark;
+}
+
+html, body {
+  @apply antialiased;
+}
+/* Magazine Drop Cap Style */
+.drop-cap::first-letter {
+  float: left;
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 700;
+  font-size: 4.5rem;
+  line-height: 0.8;
+  margin-right: 0.75rem;
+  margin-top: 0.25rem;
+  color: #d97706; /* Amber-600 */
+}
+
+:root.dark .drop-cap::first-letter {
+  color: #fbbf24; /* Amber-400 */
+}

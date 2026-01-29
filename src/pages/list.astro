@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout title="Quick List" description="Complete list of all articles">
+  <section class="max-w-3xl mx-auto mt-8 mb-20">
+    
+    <div class="mb-12">
+      <h1 class="text-4xl font-serif font-bold text-slate-900 dark:text-white mb-8">Quick List</h1>
+      
+      <div class="relative">
+        <input 
+          type="text" 
+          id="filter-input" 
+          placeholder="Type to filter titles..." 
+          class="w-full p-4 pl-0 text-2xl font-serif bg-transparent border-b-2 border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-300 dark:placeholder-slate-600 focus:border-amber-500 outline-none transition-colors"
+          autofocus
+        />
+        <div class="absolute right-0 top-6 text-xs font-bold text-slate-400 uppercase tracking-widest">
+          {posts.length} Articles
+        </div>
+      </div>
+    </div>
+
+    <ul id="post-list" class="space-y-1">
+      {posts.map((post) => (
+        <li class="post-item group">
+          <a href={`/blog/${post.slug}/`} class="flex items-baseline gap-6 py-4 border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors px-3 rounded-lg -mx-3">
+            <span class="text-xs font-mono text-slate-400 shrink-0 w-24">
+              {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: '2-digit' })}
+            </span>
+            <span class="text-lg font-serif text-slate-800 dark:text-slate-200 group-hover:text-amber-700 dark:group-hover:text-amber-400 post-title">
+              {post.data.title}
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    
+    <p id="no-matches" class="hidden text-slate-400 italic mt-12 text-center">No articles found matching that title.</p>
+
+  </section>
+
+  <script is:inline>
+    const input = document.getElementById('filter-input');
+    const list = document.getElementById('post-list');
+    const items = list.querySelectorAll('.post-item');
+    const noMatches = document.getElementById('no-matches');
+
+    input.addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase();
+      let hasVisible = false;
+      items.forEach((item) => {
+        const title = item.querySelector('.post-title').innerText.toLowerCase();
+        if (title.includes(term)) {
+          item.classList.remove('hidden');
+          hasVisible = true;
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+      if (hasVisible) {
+        noMatches.classList.add('hidden');
+      } else {
+        noMatches.classList.remove('hidden');
+      }
+    });
+  </script>
+</BaseLayout>

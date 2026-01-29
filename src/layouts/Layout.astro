@@ -1,0 +1,30 @@
+---
+const { title = "Economic Frictions" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+
+    <meta name="description" content="Understanding markets through frictions, incentives, and institutions." />
+
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="/">Economic Frictions</a>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <p>© {new Date().getFullYear()} Economic Frictions</p>
+    </footer>
+  </body>
+</html>

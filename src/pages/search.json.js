@@ -1,0 +1,17 @@
+import { getCollection } from 'astro:content';
+
+export async function GET({}) {
+  const posts = await getCollection('blog');
+  
+  const searchList = posts.map(post => ({
+    title: post.data.title,
+    description: post.data.description,
+    slug: `/blog/${post.slug}/`,
+    date: post.data.pubDate,
+    tags: post.data.tags
+  }));
+
+  return new Response(JSON.stringify(searchList), {
+    headers: { 'Content-Type': 'application/json' }
+  });
+}

@@ -1,0 +1,45 @@
+---
+---
+<div class="my-16 p-8 md:p-12 bg-slate-100 dark:bg-slate-800/50 rounded-2xl border border-slate-200 dark:border-slate-700 text-center relative overflow-hidden group">
+  
+  <div class="absolute -top-12 -right-12 w-24 h-24 bg-amber-400/20 rounded-full blur-2xl group-hover:bg-amber-400/30 transition-colors duration-500"></div>
+  
+  <div class="relative z-10 max-w-lg mx-auto">
+    <h3 class="font-serif font-bold text-2xl text-slate-900 dark:text-white mb-4">
+      Subscribe to Economic Frictions
+    </h3>
+    
+    <form class="subscribe-form flex flex-col sm:flex-row gap-3">
+      <input 
+        type="email" 
+        placeholder="your@email.com" 
+        required
+        class="w-full px-5 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder-slate-400 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all"
+      />
+      <button 
+        type="submit" 
+        class="px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold rounded-lg hover:bg-amber-600 dark:hover:bg-amber-400 transition-colors whitespace-nowrap"
+      >
+        Join Free
+      </button>
+    </form>
+
+    <div class="success-message hidden mt-4 p-3 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-sm font-semibold rounded-lg">
+      Welcome aboard. You've been added to the list.
+    </div>
+  </div>
+
+  <script is:inline>
+    // This script handles the "fake" submission so the page doesn't reload
+    const form = document.querySelector('.subscribe-form');
+    const msg = document.querySelector('.success-message');
+
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault(); // Stop the redirect
+        form.classList.add('opacity-50', 'pointer-events-none'); // Disable form
+        msg.classList.remove('hidden'); // Show success message
+      });
+    }
+  </script>
+</div>
