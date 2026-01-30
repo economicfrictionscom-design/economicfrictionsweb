@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build --site https://economicfrictionscom-design.github.io --base /economicfrictionsweb",
+    "build": "astro build --site https://www.economicfrictions.com",
     "preview": "astro preview",
     "astro": "astro"
   },

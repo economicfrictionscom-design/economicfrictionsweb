@@ -12,7 +12,7 @@ export async function GET(context) {
       pubDate: post.data.pubDate,
       description: post.data.description,
       // FIXED: Added '/economicfrictionsweb/' before the blog path
-      link: `/economicfrictionsweb/blog/${post.slug}/`,
+      link: `/blog/${post.slug}/`,
     })),
   });
 }

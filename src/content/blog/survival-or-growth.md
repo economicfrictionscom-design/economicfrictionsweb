@@ -2,7 +2,7 @@
 title: "What if survival is what we call growth?"
 description: "Analyzing how credit-fueled consumption in India might be masking survival as growth."
 pubDate: 2026-01-18
-heroImage: "/economicfrictionsweb/survival/credit-growth.png"
+heroImage: "/survival/credit-growth.png"
 tags: ["Economics", "India", "Credit", "Growth"]
 ---
 
@@ -37,27 +37,27 @@ When credit is available to every household through small finance banks, credit 
 
 **1. Income Inequality**
 *Income distribution remains sharply uneven, meaning the ability to absorb shocks is not uniform.*
-![Income Inequality](/economicfrictionsweb/survival/inequality.png)
+![Income Inequality](/survival/inequality.png)
 
 **2. GDP Growth (Annual %)**
 *The economy is expanding in aggregate terms.*
-![GDP Growth](/economicfrictionsweb/survival/gdp-growth.png)
+![GDP Growth](/survival/gdp-growth.png)
 
 **3. GDP Per Capita**
 *Broad upward trend over the long run.*
-![GDP Per Capita](/economicfrictionsweb/survival/gdp-per-capita.png)
+![GDP Per Capita](/survival/gdp-per-capita.png)
 
 **4. Credit Growth vs Personal Loans**
 *The strong rise in personal loans and credit card outstanding growth signals spending funded by debt.*
-![Credit Growth](/economicfrictionsweb/survival/credit-growth.png)
+![Credit Growth](/survival/credit-growth.png)
 
 **5. Private Final Consumption Expenditure**
 *Consumption remains strong, but likely funded by borrowing capacity.*
-![Consumption Expenditure](/economicfrictionsweb/survival/consumption.png)
+![Consumption Expenditure](/survival/consumption.png)
 
 **6. Gross Domestic Savings Rate**
 *Savings are falling or remaining weak while credit expands.*
-![Savings Rate](/economicfrictionsweb/survival/savings.png)
+![Savings Rate](/survival/savings.png)
 
 <br>
 

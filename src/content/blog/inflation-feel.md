@@ -48,4 +48,4 @@ Since CPI includes several non-essential items with lower inflation, it often un
 ## Final Thought
 Inflation may be under control statistically, but for households, what truly matters is whether life feels affordable. When essential expenses rise faster than incomes, when prices do not fall back, and when economic growth does not reach everyone equally, inflation continues to feel real — even if the numbers say otherwise.
 
-![Graph showing inflation](/economicfrictionsweb/graph.png)
+![Graph showing inflation](/inflation/graph.png)
