@@ -1,7 +1,7 @@
 ---
 title: "Why More People Are Working but Fewer Feel Secure About Their Jobs in India?"
 description: "Analyzing the paradox of rising employment numbers versus declining job security in India's service-heavy economy."
-pubDate: "2026-01-25"
+pubDate: 2026-01-25
 tags: ["Labor Market", "India", "Employment", "Skills Gap", "Economy"]
 ---
 

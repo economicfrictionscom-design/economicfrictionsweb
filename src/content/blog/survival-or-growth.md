@@ -1,7 +1,7 @@
 ---
 title: "What if survival is what we call growth?"
 description: "Analyzing how credit-fueled consumption in India might be masking survival as growth."
-pubDate: "2026-01-18"
+pubDate: 2026-01-18
 heroImage: "/economicfrictionsweb/survival/credit-growth.png"
 ---
 
