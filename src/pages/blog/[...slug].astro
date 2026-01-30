@@ -5,8 +5,8 @@ import BlogPost from '../../layouts/BlogPost.astro';
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
 	return posts.map((post) => ({
-		// post.id is the filename in Astro 5
-		params: { slug: post.id },
+		// This regex removes the .md extension from the URL slug
+		params: { slug: post.id.replace(/\.[^/.]+$/, "") },
 		props: post,
 	}));
 }
