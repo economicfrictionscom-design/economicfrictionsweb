@@ -1,24 +1,14 @@
 /* src/styles/global.css */
-
-:root {
-  --ef-navy: #0F1623;
-  --ef-text: #F3F4F6;
-  --ef-gold: #DCA54E;
-  --ef-pale-blue: #BCCCDC;
-  --ef-border: #2D3748; /* Slightly lighter navy for borders */
-}
-
-body {
-  background-color: var(--ef-navy);
-  color: var(--ef-text);
-  font-family: 'Inter', system-ui, sans-serif; /* Replace with your font */
+html, body {
+  font-family: system-ui, sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #ffffff; /* White background */
+  color: #1a1a1a; /* Dark text */
 }
 
-/* Links and Accents */
 a {
-  color: var(--ef-gold);
+  color: #3b82f6;
   text-decoration: none;
 }
 
@@ -26,28 +16,21 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Typography Overrides */
+/* Ensure headings are dark and readable */
 h1, h2, h3, h4, h5, h6 {
-  color: #ffffff;
+  color: #000000;
+  margin-top: 2rem;
 }
 
-/* The Subscription Box Style (Dark Theme) */
-.subscribe-card {
-  background-color: #1A2332; /* Slightly lighter than bg */
-  border: 1px solid var(--ef-pale-blue);
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+p {
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #333333;
 }
 
-.subscribe-btn {
-  background-color: var(--ef-gold);
-  color: var(--ef-navy);
-  font-weight: bold;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  cursor: pointer;
-  width: 100%;
-  margin-top: 1rem;
+/* Basic container for content */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
