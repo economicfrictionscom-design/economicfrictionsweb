@@ -8,29 +8,29 @@ const { title, description, pubDate, updatedDate } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} full={true}>
-  <div class="max-w-[95rem] mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12 xl:gap-24 py-16 relative">
+  <div class="max-w-[95rem] mx-auto px-6 lg:px-16 grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-16 py-16 relative">
     
     <article class="min-w-0">
-      <header class="mb-16">
-        <div class="text-amber-600 dark:text-amber-500 font-mono text-sm uppercase tracking-widest mb-4">
+      <header class="mb-16 border-b border-slate-100 dark:border-slate-800/50 pb-12">
+        <div class="text-amber-600 dark:text-amber-500 font-mono text-[11px] uppercase tracking-[0.2em] mb-6">
           <FormattedDate date={pubDate} />
         </div>
-        <h1 class="text-5xl md:text-7xl font-serif font-bold text-slate-900 dark:text-white leading-[1.1] tracking-tight">
+        <h1 class="text-5xl md:text-7xl font-serif font-bold text-slate-900 dark:text-white leading-[1.1] tracking-tight mb-8">
           {title}
         </h1>
-        <div class="h-1.5 w-24 bg-amber-500 mt-10"></div>
+        <div class="h-1 w-16 bg-amber-500"></div>
       </header>
 
-      <div class="prose prose-slate dark:prose-invert font-serif max-w-none prose-lg md:prose-xl leading-relaxed">
+      <div class="prose prose-slate dark:prose-invert font-serif max-w-none prose-xl leading-[1.8] text-slate-800 dark:text-slate-200">
         <slot />
       </div>
     </article>
 
     <aside class="hidden lg:block">
-      <div id="sidebar-subscribe-container" class="sticky top-24 transition-all duration-700 ease-in-out z-40">
-         <div class="bg-white dark:bg-slate-900/60 backdrop-blur-md border border-slate-200 dark:border-slate-800 px-8 py-5 rounded-3xl shadow-2xl">
-            <h3 class="font-serif font-bold text-2xl text-slate-900 dark:text-white mb-1">Economic Frictions</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400 mb-4 leading-relaxed">
+      <div id="sidebar-subscribe-container" class="sticky top-28 transition-all duration-700 ease-in-out z-40">
+         <div class="group bg-white dark:bg-slate-900/40 backdrop-blur-xl border border-slate-200 dark:border-slate-800 ring-1 ring-slate-950/5 dark:ring-white/5 px-10 py-6 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+            <h3 class="font-serif font-bold text-xl text-slate-900 dark:text-white mb-1.5 tracking-tight italic">Economic Frictions</h3>
+            <p class="text-[13px] text-slate-500 dark:text-slate-400 mb-6 leading-relaxed font-sans">
               Deep dives into the structural forces shaping the Indian economy.
             </p>
             
@@ -40,25 +40,27 @@ const { title, description, pubDate, updatedDate } = Astro.props;
                   name="email" 
                   placeholder="email@example.com" 
                   required 
-                  class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white outline-none focus:ring-2 focus:ring-amber-500" 
+                  class="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50 text-slate-900 dark:text-white outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all placeholder:text-slate-400" 
                 />
                 <input type="hidden" value="1" name="embed" />
-                <button type="submit" class="w-full py-3 bg-slate-900 dark:bg-amber-500 text-white dark:text-slate-900 font-bold rounded-xl hover:bg-amber-400 transition-all">
-                  Subscribe Now
+                <button type="submit" class="w-full py-3.5 bg-slate-900 dark:bg-amber-500 text-white dark:text-slate-950 text-[13px] font-bold uppercase tracking-widest rounded-xl hover:bg-slate-800 dark:hover:bg-amber-400 transition-all shadow-md active:scale-95">
+                  Join the Journal
                 </button>
             </form>
          </div>
       </div>
     </aside>
 
-    <div id="static-subscribe-section" class="col-span-full mt-24 border-t border-slate-200 dark:border-slate-800 pt-20">
-      <div class="max-w-3xl mx-auto text-center">
-        <div class="bg-slate-100 dark:bg-slate-800/50 p-8 rounded-3xl">
+    <div id="static-subscribe-section" class="col-span-full mt-32 border-t border-slate-200 dark:border-slate-800 pt-24 pb-12">
+      <div class="max-w-2xl mx-auto text-center">
+        <div class="bg-slate-100 dark:bg-slate-800/30 p-12 rounded-[2.5rem] border border-slate-200/50 dark:border-slate-700/50 shadow-inner">
             <Subscribe />
-            <p class="text-xs text-slate-500 mt-4 italic">Instant unsubscribe link included in every email.</p>
+            <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-6 uppercase tracking-[0.2em] font-bold">
+              Secure & Private • One-click Unsubscribe
+            </p>
         </div>
 
-        <div class="mt-20 text-left">
+        <div class="mt-24 text-left">
           <Comments />
         </div>
       </div>
@@ -73,14 +75,15 @@ const { title, description, pubDate, updatedDate } = Astro.props;
       if (!sidebar || !staticSection) return;
       const staticRect = staticSection.getBoundingClientRect();
       
-      if (staticRect.top < window.innerHeight - 100) {
+      // Precision Vanish
+      if (staticRect.top < window.innerHeight - 50) {
         sidebar.style.opacity = '0';
         sidebar.style.pointerEvents = 'none';
-        sidebar.style.transform = 'translateY(10px)';
+        sidebar.style.transform = 'translateY(15px) scale(0.98)';
       } else {
         sidebar.style.opacity = '1';
         sidebar.style.pointerEvents = 'auto';
-        sidebar.style.transform = 'translateY(0)';
+        sidebar.style.transform = 'translateY(0) scale(1)';
       }
     });
   </script>
