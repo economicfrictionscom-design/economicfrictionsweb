@@ -8,7 +8,7 @@ const { title, description, pubDate, updatedDate } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="max-w-4xl mx-auto px-4 py-12 relative">
+  <div class="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-1 lg:grid-cols-[1fr_350px] gap-16 py-12 relative">
     
     <article class="min-w-0">
       <header class="mb-12">
@@ -33,37 +33,37 @@ const { title, description, pubDate, updatedDate } = Astro.props;
       </div>
     </article>
 
-    <aside 
-      id="sidebar-subscribe-container" 
-      class="hidden xl:block fixed top-1/4 right-8 w-72 transition-all duration-500 opacity-100 translate-y-0 z-50"
-    >
-      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-2xl transition-colors duration-300">
-        <h3 class="font-serif font-bold text-lg text-slate-900 dark:text-white mb-2">Economic Frictions</h3>
-        <p class="text-xs text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">
-          Analysis of the hidden mechanisms shaping markets.
-        </p>
-        
-        <form
-          action="https://buttondown.email/api/emails/embed-subscribe/devansh"
-          method="post"
-          target="popupwindow"
-          onsubmit="window.open('https://buttondown.email/api/emails/embed-subscribe/devansh', 'popupwindow')"
-          class="flex flex-col gap-3"
-        >
-          <input
-            type="email"
-            name="email"
-            placeholder="Email address"
-            required
-            class="w-full px-4 py-2 text-sm rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:border-amber-500 outline-none"
-          />
-          <button
-            type="submit"
-            class="w-full px-4 py-2 bg-slate-900 dark:bg-amber-500 text-white dark:text-slate-900 text-sm font-bold rounded-lg hover:bg-amber-400 transition-colors"
+    <aside class="hidden lg:block">
+      <div 
+        id="sidebar-subscribe-container" 
+        class="sticky top-12 transition-all duration-500 opacity-100 translate-y-0 z-40"
+      >
+        <div class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 p-8 rounded-2xl shadow-xl">
+          <h3 class="font-serif font-bold text-xl text-slate-900 dark:text-white mb-2">Economic Frictions</h3>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Analysis of the hidden mechanisms shaping markets.</p>
+          
+          <form
+            action="https://buttondown.email/api/emails/embed-subscribe/devansh"
+            method="post"
+            target="popupwindow"
+            onsubmit="window.open('https://buttondown.email/api/emails/embed-subscribe/devansh', 'popupwindow')"
+            class="flex flex-col gap-3"
           >
-            Subscribe
-          </button>
-        </form>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email address"
+              required
+              class="w-full px-4 py-3 text-sm rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:border-amber-500 outline-none"
+            />
+            <button
+              type="submit"
+              class="w-full px-4 py-3 bg-slate-900 dark:bg-amber-500 text-white dark:text-slate-900 text-sm font-bold rounded-lg hover:bg-amber-600 dark:hover:bg-amber-400 transition-colors"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
       </div>
     </aside>
   </div>
@@ -74,14 +74,16 @@ const { title, description, pubDate, updatedDate } = Astro.props;
 
     window.addEventListener('scroll', () => {
       if (!sidebar || !staticSection) return;
-      const staticRect = staticSection.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
 
-      // Smart Vanish: Hides the floating sidebar when you reach the bottom form
+      const windowHeight = window.innerHeight;
+      const staticRect = staticSection.getBoundingClientRect();
+
+      // Trigger: If the top of the permanent button enters the viewport
+      // We use a 100px buffer to ensure it vanishes cleanly before they overlap
       if (staticRect.top < windowHeight - 100) {
-        sidebar.classList.add('opacity-0', 'pointer-events-none', 'translate-x-10');
+        sidebar.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
       } else {
-        sidebar.classList.remove('opacity-0', 'pointer-events-none', 'translate-x-10');
+        sidebar.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
       }
     });
   </script>
