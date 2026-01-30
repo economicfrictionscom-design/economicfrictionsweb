@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
 const latestPosts = posts.slice(0, 4);
@@ -34,7 +34,7 @@ const olderPosts = posts.slice(4);
         <article class="group relative pl-0 md:pl-8">
           <div class="hidden md:block absolute left-0 top-0 bottom-0 w-px bg-slate-200 dark:bg-slate-800 group-hover:bg-amber-500 transition-colors"></div>
           
-          <a href={`/economicfrictionsweb/blog/${post.slug}`} class="block max-w-4xl">
+          <a href={`/blog/${post.slug}`} class="block max-w-4xl">
             <div class="flex items-center gap-4 mb-4">
               <span class="text-slate-400 font-mono text-xs uppercase tracking-tighter">
                 {post.data.pubDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
@@ -60,7 +60,7 @@ const olderPosts = posts.slice(4);
       <h2 class="text-xs font-bold tracking-[0.3em] text-slate-400 uppercase mb-12">From the Archive</h2>
       <div class="grid gap-10 md:grid-cols-2">
         {olderPosts.map((post) => (
-          <a href={`/economicfrictionsweb/blog/${post.slug}`} class="group p-6 border border-slate-200 dark:border-slate-800 rounded hover:border-amber-500 transition-colors">
+          <a href={`/blog/${post.slug}`} class="group p-6 border border-slate-200 dark:border-slate-800 rounded hover:border-amber-500 transition-colors">
             <span class="text-[10px] font-mono text-slate-400 block mb-2">
               {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
             </span>
@@ -74,7 +74,7 @@ const olderPosts = posts.slice(4);
   )}
 
   <div class="text-center">
-    <a href="/economicfrictionsweb/archive" class="inline-block px-10 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform">
+    <a href="/archive" class="inline-block px-10 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform">
       Explore Archive
     </a>
   </div>
