@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Welcome" description="Subscription confirmed">
+  <div class="max-w-2xl mx-auto px-6 py-32 text-center">
+    <div class="inline-flex items-center justify-center w-20 h-20 bg-amber-100 dark:bg-amber-900/30 rounded-full mb-8">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-amber-600 dark:text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+      </svg>
+    </div>
+    
+    <h1 class="text-4xl md:text-5xl font-serif font-bold text-slate-900 dark:text-white mb-6">
+      You're on the list.
+    </h1>
+    
+    <p class="text-lg text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">
+      Thank you for joining <strong>Economic Frictions</strong>. You'll receive the next analysis directly in your inbox. In the meantime, feel free to explore the archive.
+    </p>
+    
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="/archive" class="px-8 py-3 bg-slate-900 dark:bg-amber-500 text-white dark:text-slate-900 font-bold rounded-xl hover:opacity-90 transition-all">
+        Read the Archive
+      </a>
+      <a href="/" class="px-8 py-3 bg-white dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 font-bold rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 transition-all">
+        Back Home
+      </a>
+    </div>
+  </div>
+</BaseLayout>

@@ -8,11 +8,11 @@ const { title, description, pubDate, updatedDate } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} full={true}>
-  <div class="max-w-[100rem] mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-[8fr_2fr] gap-16 py-16 relative">
+  <div class="max-w-[100rem] mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-[1fr_minmax(260px,15%)] gap-12 xl:gap-20 py-16 relative">
     
     <article class="min-w-0">
-      <header class="max-w-3xl mx-auto mb-16 border-b border-slate-100 dark:border-slate-800/50 pb-12">
-        <div class="text-amber-600 dark:text-amber-500 font-mono text-[10px] uppercase tracking-[0.3em] mb-6">
+      <header class="max-w-3xl mx-auto mb-16 border-b border-slate-200 dark:border-slate-800/60 pb-12">
+        <div class="text-amber-600 dark:text-amber-500 font-mono text-[10px] uppercase tracking-[0.3em] mb-6 font-bold">
           <FormattedDate date={pubDate} />
         </div>
         <h1 class="text-5xl md:text-7xl font-serif font-bold text-slate-900 dark:text-white leading-[1.1] tracking-tight mb-8">
@@ -26,8 +26,11 @@ const { title, description, pubDate, updatedDate } = Astro.props;
       </div>
 
       <div id="static-subscribe-section" class="max-w-3xl mx-auto mt-32 border-t border-slate-200 dark:border-slate-800 pt-20">
-        <div class="bg-slate-100 dark:bg-slate-800/40 p-10 rounded-[2.5rem] shadow-inner text-center">
+        <div class="bg-slate-100 dark:bg-slate-800/50 p-10 rounded-[2.5rem] shadow-inner text-center border border-slate-200/50 dark:border-slate-700/50">
             <Subscribe />
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-6 uppercase tracking-widest font-bold">
+              Secure Subscription • One-Click Unsubscribe
+            </p>
         </div>
         <div class="mt-20">
           <Comments />
@@ -37,22 +40,34 @@ const { title, description, pubDate, updatedDate } = Astro.props;
 
     <aside class="hidden lg:block">
       <div id="sidebar-subscribe-container" class="sticky top-32 transition-all duration-700 ease-in-out z-40">
-         <div class="bg-white dark:bg-slate-900/60 backdrop-blur-md border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-xl">
+         <div class="bg-white dark:bg-slate-900/60 backdrop-blur-md border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-xl hover:border-amber-500/30 transition-colors group">
             <h3 class="font-serif font-bold text-xl text-slate-900 dark:text-white mb-2">Economic Frictions</h3>
-            <p class="text-xs text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">
+            <p class="text-xs text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
               Analysis of the hidden mechanisms shaping markets.
             </p>
             
-            <form action="https://buttondown.email/api/emails/embed-subscribe/devansh" method="post" target="popupwindow" class="flex flex-col gap-3">
+            <form 
+              action="https://buttondown.email/api/emails/embed-subscribe/devansh" 
+              method="post" 
+              target="popupwindow" 
+              class="flex flex-col gap-3"
+              onsubmit="window.open('https://buttondown.email/api/emails/embed-subscribe/devansh', 'popupwindow')"
+            >
                 <input 
                   type="email" 
                   name="email" 
                   placeholder="Email address" 
                   required 
-                  class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50 text-slate-900 dark:text-white outline-none focus:ring-1 focus:ring-amber-500" 
+                  class="w-full px-4 py-3 text-xs rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white outline-none focus:ring-2 focus:ring-amber-500 transition-all" 
                 />
                 <input type="hidden" value="1" name="embed" />
-                <button type="submit" class="w-full py-3 bg-slate-900 dark:bg-amber-500 text-white dark:text-slate-950 text-[11px] font-bold uppercase tracking-widest rounded-xl hover:opacity-90 transition-all shadow-md">
+                
+                <input type="hidden" name="redirect_url" value="https://www.economicfrictions.com/subscribed" />
+                
+                <button 
+                  type="submit" 
+                  class="w-full py-3.5 bg-slate-900 dark:bg-amber-500 text-white dark:text-slate-950 text-[11px] font-bold uppercase tracking-widest rounded-xl hover:opacity-90 active:scale-[0.97] transition-all shadow-md"
+                >
                   Subscribe
                 </button>
             </form>
@@ -65,20 +80,25 @@ const { title, description, pubDate, updatedDate } = Astro.props;
     const sidebar = document.getElementById('sidebar-subscribe-container');
     const staticSection = document.getElementById('static-subscribe-section');
 
-    window.addEventListener('scroll', () => {
+    const updateVanish = () => {
       if (!sidebar || !staticSection) return;
       const staticRect = staticSection.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
       
-      // Smart Vanish: Hides sidebar when footer subscription section appears
-      if (staticRect.top < window.innerHeight - 100) {
+      if (staticRect.top < windowHeight - 150) {
         sidebar.style.opacity = '0';
         sidebar.style.pointerEvents = 'none';
-        sidebar.style.transform = 'translateY(15px) scale(0.95)';
+        sidebar.style.transform = 'translateY(20px) scale(0.9)';
+        sidebar.style.filter = 'blur(4px)';
       } else {
         sidebar.style.opacity = '1';
         sidebar.style.pointerEvents = 'auto';
         sidebar.style.transform = 'translateY(0) scale(1)';
+        sidebar.style.filter = 'blur(0px)';
       }
-    });
+    };
+
+    window.addEventListener('scroll', updateVanish);
+    updateVanish();
   </script>
 </BaseLayout>
