@@ -24,36 +24,39 @@ const { title, description, pubDate, updatedDate } = Astro.props;
       <div class="prose prose-slate dark:prose-invert font-serif max-w-none prose-lg md:prose-xl leading-relaxed">
         <slot />
       </div>
-
-      <div id="static-subscribe-section" class="mt-24 border-t border-slate-200 dark:border-slate-800 pt-16 max-w-2xl mx-auto text-center">
-        <h2 class="text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4">Subscribe to Economic Frictions</h2>
-        <p class="text-slate-600 dark:text-slate-400 mb-8">Get independent analysis delivered to your inbox.</p>
-        
-        <div class="bg-white dark:bg-slate-900/50 p-8 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm">
-           <Subscribe />
-           <p class="text-[10px] text-slate-400 mt-4 uppercase tracking-widest">Instant unsubscribe link included in every email.</p>
-        </div>
-
-        <div class="mt-20 text-left">
-          <Comments />
-        </div>
-      </div>
     </article>
 
     <aside class="hidden lg:block">
       <div id="sidebar-subscribe-container" class="sticky top-24 transition-all duration-700 ease-in-out z-40">
          <div class="bg-white dark:bg-slate-900/60 backdrop-blur-md border border-slate-200 dark:border-slate-800 p-8 rounded-3xl shadow-2xl">
             <h3 class="font-serif font-bold text-2xl text-slate-900 dark:text-white mb-3">Economic Frictions</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400 mb-8">Deep dives into the structural forces shaping the Indian economy.</p>
-            
+            <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">
+              Deep dives into the structural forces shaping the Indian economy.
+            </p>
             <form action="https://buttondown.email/api/emails/embed-subscribe/devansh" method="post" target="popupwindow" class="flex flex-col gap-4">
-                <input type="email" name="email" placeholder="email@example.com" required class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white outline-none focus:ring-2 focus:ring-amber-500" />
+                <input type="email" name="email" placeholder="email@example.com" required class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white" />
                 <input type="hidden" value="1" name="embed" />
-                <button type="submit" class="w-full py-4 bg-slate-900 dark:bg-amber-500 text-white dark:text-slate-900 font-bold rounded-xl hover:bg-amber-400 transition-all">Join Free</button>
+                <button type="submit" class="w-full py-4 bg-slate-900 dark:bg-amber-500 text-white dark:text-slate-900 font-bold rounded-xl hover:bg-amber-400 transition-all">Subscribe Now</button>
             </form>
          </div>
       </div>
     </aside>
+
+    <div id="static-subscribe-section" class="col-span-full mt-24 border-t border-slate-200 dark:border-slate-800 pt-20">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-5xl font-serif font-bold text-slate-900 dark:text-white mb-4">Subscribe to Economic Frictions</h2>
+        <p class="text-lg text-slate-600 dark:text-slate-400 mb-8">Get independent analysis delivered to your inbox.</p>
+        
+        <div class="bg-slate-100 dark:bg-slate-800/50 p-8 rounded-3xl">
+           <Subscribe />
+           <p class="text-xs text-slate-500 mt-4 italic">Instant unsubscribe link included in every email.</p>
+        </div>
+
+        <div class="mt-20 text-left">
+          <Comments />
+        </div>
+      </div>
+    </div>
   </div>
 
   <script is:inline>
@@ -64,11 +67,11 @@ const { title, description, pubDate, updatedDate } = Astro.props;
       if (!sidebar || !staticSection) return;
       const staticRect = staticSection.getBoundingClientRect();
       
-      // Smart Vanish Trigger
-      if (staticRect.top < window.innerHeight - 50) {
+      // Smart Vanish: Hides sidebar precisely when footer starts appearing
+      if (staticRect.top < window.innerHeight - 100) {
         sidebar.style.opacity = '0';
         sidebar.style.pointerEvents = 'none';
-        sidebar.style.transform = 'translateY(15px)';
+        sidebar.style.transform = 'translateY(10px)';
       } else {
         sidebar.style.opacity = '1';
         sidebar.style.pointerEvents = 'auto';
