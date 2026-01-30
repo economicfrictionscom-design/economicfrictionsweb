@@ -35,7 +35,7 @@ const { title, description, pubDate, updatedDate } = Astro.props;
 
     <aside 
       id="sidebar-subscribe-container" 
-      class="hidden xl:block fixed top-1/4 right-8 w-72 transition-all duration-500 opacity-100 translate-y-0 z-50"
+      class="hidden xl:block fixed top-1/4 right-8 w-72 transition-all duration-700 ease-in-out opacity-100 translate-y-0 z-50"
     >
       <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-2xl transition-colors duration-300">
         <h3 class="font-serif font-bold text-lg text-slate-900 dark:text-white mb-2">Economic Frictions</h3>
@@ -69,22 +69,32 @@ const { title, description, pubDate, updatedDate } = Astro.props;
   </div>
 
   <script is:inline>
+    // Using IntersectionObserver for 100% reliability
     const sidebar = document.getElementById('sidebar-subscribe-container');
     const staticSection = document.getElementById('static-subscribe-section');
 
-    window.addEventListener('scroll', () => {
-      if (!sidebar || !staticSection) return;
-      const staticRect = staticSection.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
+    if (sidebar && staticSection) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // High-performance vanish
+            sidebar.style.opacity = '0';
+            sidebar.style.pointerEvents = 'none';
+            sidebar.style.transform = 'translateX(50px)';
+          } else {
+            // Restore when scrolling back up
+            sidebar.style.opacity = '1';
+            sidebar.style.pointerEvents = 'auto';
+            sidebar.style.transform = 'translateX(0)';
+          }
+        });
+      }, {
+        // Trigger when the static section is within 200px of the bottom
+        rootMargin: '0px 0px -200px 0px',
+        threshold: 0
+      });
 
-      // Smart Vanish Trigger:
-      // staticRect.top is the distance from the top of the viewport to the bottom subscribe box.
-      // If it's less than windowHeight, the bottom box has started appearing.
-      if (staticRect.top < windowHeight) {
-        sidebar.classList.add('opacity-0', 'pointer-events-none', 'translate-x-10');
-      } else {
-        sidebar.classList.remove('opacity-0', 'pointer-events-none', 'translate-x-10');
-      }
-    });
+      observer.observe(staticSection);
+    }
   </script>
 </BaseLayout>
