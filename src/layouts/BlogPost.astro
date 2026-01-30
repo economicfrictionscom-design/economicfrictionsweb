@@ -4,6 +4,7 @@ import BaseLayout from './BaseLayout.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Comments from '../components/Comments.astro';
 import Subscribe from '../components/Subscribe.astro';
+import FloatingSubscribe from '../components/FloatingSubscribe.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
@@ -14,7 +15,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
   <article class="max-w-4xl mx-auto">
     
     <div class="mb-12 text-center">
-      {/* Date & Title Only (Image Removed) */}
+      {/* Date & Title Only (Image Removed from here) */}
       <div class="space-y-4 mb-8">
         <div class="text-slate-500 dark:text-slate-400 font-mono text-sm uppercase tracking-wider">
           <FormattedDate date={pubDate} />
@@ -36,13 +37,16 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
       <slot />
     </div>
 
-    {/* Subscribe & Comments Section */}
-    <div class="mt-20 border-t border-slate-200 dark:border-slate-800 pt-10">
+    {/* Static Subscribe & Comments Section (With ID for detection) */}
+    <div id="static-subscribe-section" class="mt-20 border-t border-slate-200 dark:border-slate-800 pt-10">
       <Subscribe />
       <div class="mt-12">
         <Comments />
       </div>
     </div>
+
+    {/* The Floating Component */}
+    <FloatingSubscribe />
 
   </article>
 </BaseLayout>
