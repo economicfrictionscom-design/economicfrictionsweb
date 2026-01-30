@@ -3,12 +3,16 @@
 import '../styles/global.css';
 
 const { frontmatter } = Astro.props;
+
+// LOGIC FIX: Check if title is in 'frontmatter' OR directly in 'Astro.props'
+const title = frontmatter?.title || Astro.props.title;
+const pubDate = frontmatter?.pubDate || Astro.props.pubDate;
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>{frontmatter.title}</title>
+    <title>{title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
@@ -22,8 +26,8 @@ const { frontmatter } = Astro.props;
     <div class="main-container">
       
       <main class="content-area">
-        <h1 class="article-title">{frontmatter.title}</h1>
-        <p class="article-date">{frontmatter.pubDate}</p>
+        <h1 class="article-title">{title}</h1>
+        <p class="article-date">{pubDate}</p>
         <hr class="divider" />
         
         <article class="prose">
@@ -33,7 +37,6 @@ const { frontmatter } = Astro.props;
 
       <aside class="sidebar-area">
         <div class="sticky-wrapper">
-          
           <div class="subscribe-card">
             <h3>Economic Frictions</h3>
             <p style="color: var(--ef-pale-blue); font-size: 0.9rem; margin: 1rem 0;">
@@ -46,7 +49,6 @@ const { frontmatter } = Astro.props;
             />
             <button class="subscribe-btn">Subscribe</button>
           </div>
-
         </div>
       </aside>
 
@@ -54,50 +56,3 @@ const { frontmatter } = Astro.props;
 
   </body>
 </html>
-
-<style>
-  /* Layout Grid */
-  .main-container {
-    display: grid;
-    grid-template-columns: 1fr 300px; /* Content takes space, Sidebar is 300px */
-    gap: 4rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 3rem 1rem;
-    position: relative;
-  }
-
-  /* Typography formatting for the blog text */
-  .prose {
-    line-height: 1.8;
-    font-size: 1.1rem;
-    color: #e2e8f0; /* Soft white for reading */
-  }
-  
-  .divider {
-    border-color: var(--ef-border);
-    margin: 2rem 0;
-  }
-
-  /* THE MAGIC: Keeps the sidebar fixed while scrolling */
-  .sticky-wrapper {
-    position: sticky;
-    top: 2rem; /* How far from top of screen to stick */
-  }
-
-  /* Mobile Responsive: Stack them on small screens */
-  @media (max-width: 900px) {
-    .main-container {
-      grid-template-columns: 1fr; /* Single column */
-    }
-    
-    .sidebar-area {
-      order: -1; /* Optional: puts subscribe box ABOVE article on mobile */
-      margin-bottom: 2rem;
-    }
-    
-    .sticky-wrapper {
-      position: static; /* No sticky on mobile */
-    }
-  }
-</style>
