@@ -8,7 +8,7 @@ const { title, description, pubDate, updatedDate } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-1 lg:grid-cols-[1fr_350px] gap-12 py-12 relative">
+  <div class="max-w-7xl mx-auto px-4 lg:px-10 grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12 xl:gap-20 py-12 relative">
     
     <article class="min-w-0">
       <header class="mb-12">
@@ -21,7 +21,7 @@ const { title, description, pubDate, updatedDate } = Astro.props;
         <div class="h-1 w-20 bg-amber-500 mt-8"></div>
       </header>
 
-      <div class="prose prose-slate dark:prose-invert font-serif max-w-none">
+      <div class="prose prose-slate dark:prose-invert font-serif max-w-none prose-lg">
         <slot />
       </div>
 
@@ -36,11 +36,11 @@ const { title, description, pubDate, updatedDate } = Astro.props;
     <aside class="hidden lg:block">
       <div 
         id="sidebar-subscribe-container" 
-        class="sticky top-8 transition-all duration-500 opacity-100 translate-y-0"
+        class="sticky top-12 transition-all duration-500 opacity-100 translate-y-0"
       >
-        <div class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 p-8 rounded-2xl shadow-xl border-l-4 border-l-slate-300 dark:border-l-slate-700">
-          <h3 class="font-serif font-bold text-xl text-slate-900 dark:text-white mb-2">Economic Frictions</h3>
-          <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Analysis of the hidden mechanisms shaping markets.</p>
+        <div class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-xl">
+          <h3 class="font-serif font-bold text-lg text-slate-900 dark:text-white mb-2 text-center lg:text-left">Economic Frictions</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mb-6 leading-relaxed text-center lg:text-left">Analysis of the hidden mechanisms shaping markets.</p>
           
           <form
             action="https://buttondown.email/api/emails/embed-subscribe/devansh"
@@ -54,12 +54,12 @@ const { title, description, pubDate, updatedDate } = Astro.props;
               name="email"
               placeholder="Email address"
               required
-              class="w-full px-4 py-3 text-sm rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:border-amber-500 outline-none"
+              class="w-full px-4 py-2 text-sm rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:border-amber-500 outline-none transition-all"
             />
             <input type="hidden" value="1" name="embed" />
             <button
               type="submit"
-              class="w-full px-4 py-3 bg-slate-900 dark:bg-amber-500 text-white dark:text-slate-900 text-sm font-bold rounded-lg hover:bg-amber-400 transition-colors"
+              class="w-full px-4 py-2 bg-slate-900 dark:bg-amber-500 text-white dark:text-slate-900 text-sm font-bold rounded-lg hover:bg-amber-600 dark:hover:bg-amber-400 transition-colors"
             >
               Subscribe
             </button>
@@ -79,8 +79,8 @@ const { title, description, pubDate, updatedDate } = Astro.props;
       const windowHeight = window.innerHeight;
       const staticRect = staticSection.getBoundingClientRect();
 
-      // Smart Vanish: Hides the sidebar form when the footer form appears
-      if (staticRect.top < windowHeight - 100) {
+      // SMART VANISH: Sidebar vanishes the moment the bottom box peeks into the window
+      if (staticRect.top < windowHeight - 50) {
         sidebar.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
       } else {
         sidebar.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
