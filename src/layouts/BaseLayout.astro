@@ -1,7 +1,8 @@
 ---
 import '../styles/global.css';
 import ThemeToggle from '../components/ThemeToggle.astro';
-const { title, description, wide = false } = Astro.props;
+// Added 'full' prop to allow the layout to take up the entire screen width
+const { title, description, wide = false, full = false } = Astro.props;
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -38,7 +39,7 @@ const { title, description, wide = false } = Astro.props;
   <body class="bg-slate-50 text-slate-800 dark:bg-[#0B1120] dark:text-slate-300 font-sans flex flex-col min-h-screen antialiased transition-colors duration-300">
     
     <header class="sticky top-0 z-50 bg-white/95 dark:bg-[#0B1120]/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
-      <nav class="max-w-5xl mx-auto px-6 py-4 md:h-20 flex flex-col md:flex-row justify-between items-center gap-4">
+      <nav class="max-w-[90rem] mx-auto px-6 py-4 md:h-20 flex flex-col md:flex-row justify-between items-center gap-4">
         
         <a href="/" class="group flex items-center gap-3 transition-opacity hover:opacity-80">
           <img src="/logo.png" alt="Logo" class="w-9 h-9 rounded-full ring-2 ring-slate-100 dark:ring-slate-800" />
@@ -60,12 +61,12 @@ const { title, description, wide = false } = Astro.props;
       </nav>
     </header>
 
-    <main class={`flex-grow w-full mx-auto px-6 py-12 ${wide ? 'max-w-[90rem]' : 'max-w-5xl'}`}>
+    <main class={`flex-grow w-full mx-auto py-12 ${full ? 'max-w-none px-0' : wide ? 'max-w-[90rem] px-6' : 'max-w-5xl px-6'}`}>
       <slot />
     </main>
 
     <footer class="bg-white dark:bg-[#0f172a] border-t border-slate-200 dark:border-slate-800 mt-20 pt-16 pb-12">
-      <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div class="max-w-[90rem] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
         <div>
           <h3 class="font-serif font-bold text-lg text-slate-900 dark:text-white mb-4">Economic Frictions</h3>
           <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
