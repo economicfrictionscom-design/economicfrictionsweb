@@ -5,13 +5,18 @@ import Comments from '../components/Comments.astro';
 import Subscribe from '../components/Subscribe.astro';
 
 const { title, description, pubDate, updatedDate } = Astro.props;
+
+// EDIT THESE PIXEL VALUES AS NEEDED
+const totalWidth = "1600px";     // Total width of the container (your 100rem ~1600px)
+const contentWidth = "850px";    // The width of the centered blog text (your 85 specific)
+const sidebarWidth = "300px";    // The width of the sidebar (your 30 specific)
 ---
 
 <BaseLayout title={title} description={description} full={true}>
-  <div class="max-w-[100rem] mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-[1fr_minmax(260px,20%)] gap-12 xl:gap-20 py-16 relative">
+  <div style={`max-width: ${totalWidth}`} class="mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-12 xl:gap-20 py-16 relative">
     
     <article class="min-w-0">
-      <header class="max-w-3xl mx-auto mb-16 border-b border-slate-200 dark:border-slate-800/60 pb-12">
+      <header style={`max-width: ${contentWidth}`} class="mx-auto mb-16 border-b border-slate-200 dark:border-slate-800/60 pb-12">
         <div class="text-amber-600 dark:text-amber-500 font-mono text-[10px] uppercase tracking-[0.3em] mb-6 font-bold">
           <FormattedDate date={pubDate} />
         </div>
@@ -21,11 +26,11 @@ const { title, description, pubDate, updatedDate } = Astro.props;
         <div class="h-1.5 w-20 bg-amber-500"></div>
       </header>
 
-      <div class="prose prose-slate dark:prose-invert font-serif max-w-3xl mx-auto prose-xl leading-[1.8] text-slate-800 dark:text-slate-200">
+      <div style={`max-width: ${contentWidth}`} class="prose prose-slate dark:prose-invert font-serif mx-auto prose-xl leading-[1.8] text-slate-800 dark:text-slate-200">
         <slot />
       </div>
 
-      <div id="static-subscribe-section" class="max-w-3xl mx-auto mt-32 border-t border-slate-200 dark:border-slate-800 pt-20">
+      <div id="static-subscribe-section" style={`max-width: ${contentWidth}`} class="mx-auto mt-32 border-t border-slate-200 dark:border-slate-800 pt-20">
         <div class="bg-slate-100 dark:bg-slate-800/50 p-10 rounded-[2.5rem] shadow-inner text-center border border-slate-200/50 dark:border-slate-700/50">
             <Subscribe />
             <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-6 uppercase tracking-widest font-bold">
@@ -38,7 +43,7 @@ const { title, description, pubDate, updatedDate } = Astro.props;
       </div>
     </article>
 
-    <aside class="hidden lg:block">
+    <aside style={`width: ${sidebarWidth}`} class="hidden lg:block">
       <div id="sidebar-subscribe-container" class="sticky top-32 transition-all duration-700 ease-in-out z-40">
          <div class="bg-white dark:bg-slate-900/60 backdrop-blur-md border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-xl hover:border-amber-500/30 transition-colors group">
             <h3 class="font-serif font-bold text-xl text-slate-900 dark:text-white mb-2">Economic Frictions</h3>
