@@ -1,38 +1,52 @@
 ---
-// src/layouts/BlogPost.astro
-import '../styles/global.css';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Comments from '../components/Comments.astro';
+import Subscribe from '../components/Subscribe.astro';
+import FloatingSubscribe from '../components/FloatingSubscribe.astro';
 
-const { frontmatter } = Astro.props;
-// This line prevents the "undefined" crash you saw earlier
-const title = frontmatter?.title || Astro.props.title;
-const pubDate = frontmatter?.pubDate || Astro.props.pubDate;
+type Props = CollectionEntry<'blog'>['data'];
+
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-  </head>
-  <body>
-    <header style="padding: 20px 0; border-bottom: 1px solid #eee;">
-      <div class="container">
-        <h3 style="margin: 0;">Economic Frictions</h3>
+<BaseLayout title={title} description={description}>
+  <article class="max-w-4xl mx-auto">
+    
+    <div class="mb-12 text-center">
+      {/* Date & Title Only (Image Removed from here) */}
+      <div class="space-y-4 mb-8">
+        <div class="text-slate-500 dark:text-slate-400 font-mono text-sm uppercase tracking-wider">
+          <FormattedDate date={pubDate} />
+          {updatedDate && (
+            <div class="italic">
+              Last updated on <FormattedDate date={updatedDate} />
+            </div>
+          )}
+        </div>
+        <h1 class="text-4xl md:text-6xl font-serif font-bold text-slate-900 dark:text-white leading-tight">
+          {title}
+        </h1>
+        <hr class="border-t border-slate-200 dark:border-slate-800 my-8 w-24 mx-auto" />
       </div>
-    </header>
-
-    <main class="container" style="padding-top: 40px;">
-      <h1>{title}</h1>
-      <p style="color: #666;">{pubDate}</p>
-      <hr style="border: 0; border-top: 1px solid #eee; margin: 2rem 0;" />
-      
-      <slot />
-    </main>
-
-    <div style="position: fixed; bottom: 20px; right: 20px; background: white; padding: 20px; border: 1px solid #ddd; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; z-index: 100;">
-       <strong>Subscribe</strong>
-       <br/>
-       <input type="email" placeholder="Email" style="margin-top: 10px; padding: 5px;" />
     </div>
-  </body>
-</html>
+
+    {/* Blog Content */}
+    <div class="prose prose-lg dark:prose-invert font-serif max-w-none text-slate-800 dark:text-slate-300 leading-relaxed mx-auto">
+      <slot />
+    </div>
+
+    {/* Static Subscribe & Comments Section (With ID for detection) */}
+    <div id="static-subscribe-section" class="mt-20 border-t border-slate-200 dark:border-slate-800 pt-10">
+      <Subscribe />
+      <div class="mt-12">
+        <Comments />
+      </div>
+    </div>
+
+    {/* The Floating Component */}
+    <FloatingSubscribe />
+
+  </article>
+</BaseLayout>
