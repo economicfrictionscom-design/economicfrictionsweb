@@ -77,8 +77,10 @@ const { title, description, pubDate, updatedDate } = Astro.props;
       const staticRect = staticSection.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // Smart Vanish: Hides the floating sidebar when you reach the bottom form
-      if (staticRect.top < windowHeight - 100) {
+      // Smart Vanish Trigger:
+      // staticRect.top is the distance from the top of the viewport to the bottom subscribe box.
+      // If it's less than windowHeight, the bottom box has started appearing.
+      if (staticRect.top < windowHeight) {
         sidebar.classList.add('opacity-0', 'pointer-events-none', 'translate-x-10');
       } else {
         sidebar.classList.remove('opacity-0', 'pointer-events-none', 'translate-x-10');
