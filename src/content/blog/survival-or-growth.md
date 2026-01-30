@@ -1,10 +1,11 @@
 ---
+layout: ../../layouts/BlogPost.astro
+---
 title: "What if survival is what we call growth?"
 description: "Analyzing how credit-fueled consumption in India might be masking survival as growth."
 pubDate: 2026-01-18
 heroImage: "/survival/credit-growth.png"
 tags: ["Economics", "India", "Credit", "Growth"]
----
 
 There are a few friends of mine who use their credit cards to maintain their current lifestyle. It's normal for them to use it for clothes, food, and even other expenses. Till that point, it's fine. 
 
