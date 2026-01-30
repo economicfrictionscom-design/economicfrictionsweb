@@ -1,8 +1,10 @@
 import { defineConfig } from 'astro/config';
-// ... other imports
+import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
+import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://www.economicfrictions.com',
-  base: '',
-  // ... keep the rest of your config same
+	site: 'https://www.economicfrictions.com',
+	base: '',
+	integrations: [mdx(), sitemap(), tailwind()],
 });
