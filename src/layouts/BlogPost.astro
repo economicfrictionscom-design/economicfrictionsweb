@@ -1,52 +1,103 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import BaseLayout from './BaseLayout.astro';
-import FormattedDate from '../components/FormattedDate.astro';
-import Comments from '../components/Comments.astro';
-import Subscribe from '../components/Subscribe.astro';
-import FloatingSubscribe from '../components/FloatingSubscribe.astro';
+// src/layouts/BlogPost.astro
+import '../styles/global.css';
 
-type Props = CollectionEntry<'blog'>['data'];
-
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description}>
-  <article class="max-w-4xl mx-auto">
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{frontmatter.title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
     
-    <div class="mb-12 text-center">
-      {/* Date & Title Only (Image Removed from here) */}
-      <div class="space-y-4 mb-8">
-        <div class="text-slate-500 dark:text-slate-400 font-mono text-sm uppercase tracking-wider">
-          <FormattedDate date={pubDate} />
-          {updatedDate && (
-            <div class="italic">
-              Last updated on <FormattedDate date={updatedDate} />
-            </div>
-          )}
+    <nav style="border-bottom: 1px solid var(--ef-pale-blue); padding: 1rem;">
+      <div class="container">
+        <span style="font-weight: bold; color: white;">Economic Frictions</span>
+      </div>
+    </nav>
+
+    <div class="main-container">
+      
+      <main class="content-area">
+        <h1 class="article-title">{frontmatter.title}</h1>
+        <p class="article-date">{frontmatter.pubDate}</p>
+        <hr class="divider" />
+        
+        <article class="prose">
+          <slot /> 
+        </article>
+      </main>
+
+      <aside class="sidebar-area">
+        <div class="sticky-wrapper">
+          
+          <div class="subscribe-card">
+            <h3>Economic Frictions</h3>
+            <p style="color: var(--ef-pale-blue); font-size: 0.9rem; margin: 1rem 0;">
+              Analysis of the hidden mechanisms shaping markets.
+            </p>
+            <input 
+              type="email" 
+              placeholder="Email address" 
+              style="width: 100%; padding: 10px; border-radius: 4px; border: none;"
+            />
+            <button class="subscribe-btn">Subscribe</button>
+          </div>
+
         </div>
-        <h1 class="text-4xl md:text-6xl font-serif font-bold text-slate-900 dark:text-white leading-tight">
-          {title}
-        </h1>
-        <hr class="border-t border-slate-200 dark:border-slate-800 my-8 w-24 mx-auto" />
-      </div>
+      </aside>
+
     </div>
 
-    {/* Blog Content */}
-    <div class="prose prose-lg dark:prose-invert font-serif max-w-none text-slate-800 dark:text-slate-300 leading-relaxed mx-auto">
-      <slot />
-    </div>
+  </body>
+</html>
 
-    {/* Static Subscribe & Comments Section (With ID for detection) */}
-    <div id="static-subscribe-section" class="mt-20 border-t border-slate-200 dark:border-slate-800 pt-10">
-      <Subscribe />
-      <div class="mt-12">
-        <Comments />
-      </div>
-    </div>
+<style>
+  /* Layout Grid */
+  .main-container {
+    display: grid;
+    grid-template-columns: 1fr 300px; /* Content takes space, Sidebar is 300px */
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+    position: relative;
+  }
 
-    {/* The Floating Component */}
-    <FloatingSubscribe />
+  /* Typography formatting for the blog text */
+  .prose {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #e2e8f0; /* Soft white for reading */
+  }
+  
+  .divider {
+    border-color: var(--ef-border);
+    margin: 2rem 0;
+  }
 
-  </article>
-</BaseLayout>
+  /* THE MAGIC: Keeps the sidebar fixed while scrolling */
+  .sticky-wrapper {
+    position: sticky;
+    top: 2rem; /* How far from top of screen to stick */
+  }
+
+  /* Mobile Responsive: Stack them on small screens */
+  @media (max-width: 900px) {
+    .main-container {
+      grid-template-columns: 1fr; /* Single column */
+    }
+    
+    .sidebar-area {
+      order: -1; /* Optional: puts subscribe box ABOVE article on mobile */
+      margin-bottom: 2rem;
+    }
+    
+    .sticky-wrapper {
+      position: static; /* No sticky on mobile */
+    }
+  }
+</style>
