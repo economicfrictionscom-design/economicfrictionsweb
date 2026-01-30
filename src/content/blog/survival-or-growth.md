@@ -38,27 +38,27 @@ When credit is available to every household through small finance banks, credit 
 
 **1. Income Inequality**
 *Income distribution remains sharply uneven, meaning the ability to absorb shocks is not uniform.*
-![Income Inequality](/survival/inequality.png)
+![Income Inequality](/survival-or-growth/inequality.png)
 
 **2. GDP Growth (Annual %)**
 *The economy is expanding in aggregate terms.*
-![GDP Growth](/survival/gdp-growth.png)
+![GDP Growth](/survival-or-growth/gdp-growth.png)
 
 **3. GDP Per Capita**
 *Broad upward trend over the long run.*
-![GDP Per Capita](/survival/gdp-per-capita.png)
+![GDP Per Capita](/survival-or-growth/gdp-per-capita.png)
 
 **4. Credit Growth vs Personal Loans**
 *The strong rise in personal loans and credit card outstanding growth signals spending funded by debt.*
-![Credit Growth](/survival/credit-growth.png)
+![Credit Growth](/survival-or-growth/credit-growth.png)
 
 **5. Private Final Consumption Expenditure**
 *Consumption remains strong, but likely funded by borrowing capacity.*
-![Consumption Expenditure](/survival/consumption.png)
+![Consumption Expenditure](/survival-or-growth/consumption.png)
 
 **6. Gross Domestic Savings Rate**
 *Savings are falling or remaining weak while credit expands.*
-![Savings Rate](/survival/savings.png)
+![Savings Rate](/survival-or-growth/savings.png)
 
 <br>
 
