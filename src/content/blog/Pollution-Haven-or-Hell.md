@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPost.astro"
 title: "India: Pollution Heaven or Living Hell?"
 description: "Exploring why pollution continues to rise in India through the lens of negative externalities and the Pollution Haven Hypothesis."
 pubDate: 2026-02-01
