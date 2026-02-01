@@ -44,7 +44,7 @@ The real question is not whether India should grow, but whether growth that weak
 ---
 
 ### Related Media & Resources
-* [cite_start]**Video:** [Investigation into the Ganga Ecosystem (Jeremy Wade's Mighty Rivers)](https://youtu.be/__jpVgVa2gA?si=m9c8ugfVYujFRRPv) 
-* [cite_start]**Read:** [Winter pain: How Delhi’s pollution spikes are mirroring traffic hours](https://timesofindia.indiatimes.com/city/delhi/winter-pain-how-delhis-pollution-spikes-are-mirroring-traffic-hours/articleshow/125700703.cms) 
-* [cite_start]**Read:** [Promises tank, politicians fail, pollution rises in Indrayani river](https://timesofindia.indiatimes.com/city/pune/promises-tank-politicians-fail-pollution-rises-in-indrayani-river/articleshow/127423419.cms) 
-* [cite_start]**Article:** [The Miteni Factory Case and India Connection](https://www.theguardian.com/environment/2025/oct/31/miteni-factory-pfas-plant-italy-india)
+***Video:** [Investigation into the Ganga Ecosystem (Jeremy Wade's Mighty Rivers)](https://youtu.be/__jpVgVa2gA?si=m9c8ugfVYujFRRPv) 
+***Read:** [Winter pain: How Delhi’s pollution spikes are mirroring traffic hours](https://timesofindia.indiatimes.com/city/delhi/winter-pain-how-delhis-pollution-spikes-are-mirroring-traffic-hours/articleshow/125700703.cms) 
+***Read:** [Promises tank, politicians fail, pollution rises in Indrayani river](https://timesofindia.indiatimes.com/city/pune/promises-tank-politicians-fail-pollution-rises-in-indrayani-river/articleshow/127423419.cms) 
+***Article:** [The Miteni Factory Case and India Connection](https://www.theguardian.com/environment/2025/oct/31/miteni-factory-pfas-plant-italy-india)
