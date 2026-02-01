@@ -1,15 +1,21 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { type CollectionEntry, getCollection } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
+import { render } from 'astro:content';
 
 export async function getStaticPaths() {
+	// 1. Get ALL posts (No .filter means it publishes IMMEDIATELY, even if date is future)
 	const posts = await getCollection('blog');
+	
 	return posts.map((post) => ({
-		// This regex removes the .md extension from the URL slug
-		params: { slug: post.id.replace(/\.[^/.]+$/, "") },
+		// 2. THE FIX: Ensure slug is a string. 
+		// If post.slug is already a string, this works. 
+		// If it's an array, we join it to make it a string.
+		params: { slug: Array.isArray(post.slug) ? post.slug.join('/') : post.slug },
 		props: post,
 	}));
 }
+type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
 const { Content } = await render(post);
