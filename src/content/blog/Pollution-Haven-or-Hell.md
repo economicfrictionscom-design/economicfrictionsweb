@@ -16,7 +16,7 @@ A negative externality occurs when the outcome of an economic activity affects a
 In India, air pollution alone costs approximately 1–1.5% of GDP every year, primarily through healthcare expenses, productivity losses, and premature mortality.
 
 ## Why Does Pollution Continue to Rise?
-From a layperson’s perspective, the answer is simple: economic activity moves where opportunity exists. Firms are profit-driven and tend to operate in regions where costs—including environmental compliance costs—are lower. In many cases, this translates into locations with lenient emission laws or weaker enforcement.
+From a layperson’s perspective, the answer is simple: economic activity moves where opportunity exists. Firms are profit-driven and tend to operate in regions where costs (including environmental compliance costs) are lower. In many cases, this translates into locations with lenient emission laws or weaker enforcement.
 
 ### The Pollution Haven Hypothesis
 Economists analyze this behavior through the **Pollution Haven Hypothesis**. This suggests that polluting industries tend to relocate to jurisdictions with less stringent environmental regulations. The intuition is straightforward: environmental regulations raise the cost of pollution-intensive inputs, thereby reducing a region’s comparative advantage in such industries. Consequently, firms shift production to areas where regulatory oversight is weaker and compliance costs are lower.
