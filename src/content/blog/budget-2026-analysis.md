@@ -6,7 +6,7 @@ heroImage: "/Kartavya_path.png"
 tags: ["budget", "economics", "india", "policy", "fiscal"]
 ---
 
-The Union Budget 2026-27 is a historic document—the first ever to be prepared in Kartavya Bhawan. Unlike the stabilization budgets of the post-pandemic years, this is a strategic gamble. As Finance Minister Nirmala Sitharaman noted, we are navigating an external environment where "trade and multilateralism are imperilled and access to resources and supply chains are disrupted."
+The Union Budget 2026-27 is a historic document-the first ever to be prepared in Kartavya Bhawan. Unlike the stabilization budgets of the post-pandemic years, this is a strategic gamble. As Finance Minister Nirmala Sitharaman noted, we are navigating an external environment where "trade and multilateralism are imperilled and access to resources and supply chains are disrupted."
 
 In response, the government has moved beyond the "recovery" theme of 2025-26 to a new governance framework: **The Three Kartavyas**. But is this duty-bound path a roadmap to Viksit Bharat, or a friction-filled road for the common man?
 
