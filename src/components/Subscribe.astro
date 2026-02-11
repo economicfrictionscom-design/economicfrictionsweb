@@ -13,21 +13,21 @@
     </p>
     
     <form
-      action="https://buttondown.email/api/emails/embed-subscribe/devansh"
+      action="https://app.kit.com/forms/9077740/subscriptions"
       method="post"
-      target="popupwindow"
-      onsubmit="window.open('https://buttondown.email/api/emails/embed-subscribe/devansh', 'popupwindow')"
       class="subscribe-form flex flex-col sm:flex-row gap-3"
     >
       <input 
         type="email" 
-        name="email" 
+        name="email_address" 
         placeholder="your@email.com" 
         required
         class="w-full px-5 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder-slate-400 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all"
       />
       
-      <input type="hidden" value="1" name="embed" />
+      <div style="position: absolute; left: -5000px;" aria-hidden="true">
+        <input type="text" name="b_9077740_password" tabindex="-1" value="">
+      </div>
       
       <button 
         type="submit" 
@@ -36,7 +36,6 @@
         Join Free
       </button>
     </form>
-
     <p class="text-xs text-slate-400 mt-4">
       Instant unsubscribe link included in every email.
     </p>
