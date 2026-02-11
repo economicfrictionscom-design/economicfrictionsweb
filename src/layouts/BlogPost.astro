@@ -52,22 +52,21 @@ const sidebarWidth = "300px";    // The width of the sidebar (your 30 specific)
             </p>
             
             <form 
-              action="https://buttondown.email/api/emails/embed-subscribe/devansh" 
+              action="https://app.kit.com/forms/9077740/subscriptions" 
               method="post" 
-              target="popupwindow" 
               class="flex flex-col gap-3"
-              onsubmit="window.open('https://buttondown.email/api/emails/embed-subscribe/devansh', 'popupwindow')"
             >
                 <input 
                   type="email" 
-                  name="email" 
+                  name="email_address" 
                   placeholder="Email address" 
                   required 
                   class="w-full px-4 py-3 text-xs rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white outline-none focus:ring-2 focus:ring-amber-500 transition-all" 
                 />
-                <input type="hidden" value="1" name="embed" />
                 
-                <input type="hidden" name="redirect_url" value="https://www.economicfrictions.com/subscribed" />
+                <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                  <input type="text" name="b_9077740_password" tabindex="-1" value="">
+                </div>
                 
                 <button 
                   type="submit" 
@@ -76,7 +75,7 @@ const sidebarWidth = "300px";    // The width of the sidebar (your 30 specific)
                   Subscribe
                 </button>
             </form>
-         </div>
+            </div>
       </div>
     </aside>
   </div>
