@@ -1,12 +1,12 @@
 ---
-layout: post
 title: "The 64% Tariff Cut: An Economic Masterstroke or Just Another Geopolitical Gimmick?"
-date: 2026-02-15
-categories: [Economics, Trade, Geopolitics]
-image: Reciprocal_Tariff.jpg
+description: "Analyzing the new US-India trade deal: Is the 64% tariff cut a win for India, or a hidden cost disguised as a discount?"
+pubDate: "Feb 15 2026"
+heroImage: "/Reciprocal_Tariff.jpg"
+categories: ["Economics", "Trade", "Geopolitics"]
 ---
 
-![Reciprocal Tariff Analysis](Reciprocal_Tariff.jpg)
+![Reciprocal Tariff Analysis](/Reciprocal_Tariff.jpg)
 
 Let’s be real: we know Mr. Trump loves his tariffs. To him, it’s not just a policy; it’s his "favorite word", a magic wand he believes makes America "rich." And we certainly felt that love last year when duties spiked from 26% in April 2025 all the way to a punishing 50% by August.
 
