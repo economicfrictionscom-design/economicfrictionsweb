@@ -81,6 +81,8 @@ The 64% cut is a great headline. But when you factor in the $500 billion bill, t
 
 We just agreed to pay the full price upfront.
 
+![Reciprocal Tariff Analysis](/Reciprocal_Tariff.PNG)
+
 ---
 
 ### Sources
