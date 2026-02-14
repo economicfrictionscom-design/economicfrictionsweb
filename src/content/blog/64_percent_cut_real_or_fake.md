@@ -3,7 +3,7 @@ title: "The 64% Tariff Cut: An Economic Masterstroke or Just Another Geopolitica
 description: "Analyzing the new US-India trade deal: Is the 64% tariff cut a win for India, or a hidden cost disguised as a discount?"
 pubDate: "Feb 15 2026"
 heroImage: "/Reciprocal_Tariff.jpg"
-categories: ["Economics", "Trade", "Geopolitics"]
+tags: ["Economics", "Trade", "Geopolitics"]
 ---
 
 ![Reciprocal Tariff Analysis](/Reciprocal_Tariff.jpg)
