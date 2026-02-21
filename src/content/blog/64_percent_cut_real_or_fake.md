@@ -10,7 +10,7 @@ Let’s be real: we know Mr. Trump loves his tariffs. To him, it’s not just a 
 
 But as of February 9, 2026, the script has flipped.
 
-Now, suddenly, we have a new framework on the table. A 64% reduction. A flat 18% rate. It sounds generous. But before we start celebrating, we need to look closer. Is this actually a substantive stimulus for our economy, or is it just optics disguised as policy—another way to make America “rich”?
+Now, suddenly, we have a new framework on the table. A 64% reduction. A flat 18% rate. It sounds generous. But before we start celebrating, we need to look closer. Is this actually a substantive stimulus for our economy, or is it just optics disguised as policy another way to make America “rich”?
 
 ## The Breakdown of the Feb 2026 “Interim Trade Agreement”
 
@@ -18,7 +18,7 @@ To understand the deal, we have to look at the math of the penalty box we just e
 
 Until this week, the tariff rate on Indian goods stood at 50%. But this figure was actually a split bill. It was structured as a 25% base tariff plus another 25% slammed as a penalty for our trade with Russia during the Ukraine war. It was effectively a fine for buying "forbidden" oil.
 
-Now, what has changed is that because of the new agreement—where India will eventually reduce imports from Russia—the earlier 25% penalty has vanished. But the penalty didn't just disappear; it was bought. And the price we paid is buried in the fine print.
+Now, what has changed is that because of the new agreement where India will eventually reduce imports from Russia the earlier 25% penalty has vanished. But the penalty didn't just disappear; it was bought. And the price we paid is buried in the fine print.
 
 ## Hidden Parameters
 
@@ -36,7 +36,7 @@ How can "Make in India" thrive when we are actively inviting the world's biggest
 
 But the friction didn't stop there. Just as the balance sheet was made public, and Indian traders in the leather and textile market began to breathe a sigh of relief, came another punch from the US.
 
-On February 10, Washington slashed the reciprocal duty on Bangladeshi goods to 19%—dangerously close to India’s 18%.
+On February 10, Washington slashed the reciprocal duty on Bangladeshi goods to 19% dangerously close to India’s 18%.
 
 But the real blow was buried in the fine print: a conditional 0% tariff for apparel made from US-grown cotton or fibers. This 'poison pill' effectively neutralizes India’s tariff advantage by incentivizing Dhaka to swap Indian raw materials for American ones to unlock duty-free access.
 
@@ -73,7 +73,7 @@ If you look strictly at the tariff sheet, yes. Coming down from 50% to 18% is a 
 
 We didn't win a 'free trade' deal; we signed a massive purchase order.
 
-We escaped the penalty box by agreeing to shop exclusively at the American mall—trading cheap Russian oil for expensive American LNG and swapping 'Make in India' for 'Buy American' in critical sectors.
+We escaped the penalty box by agreeing to shop exclusively at the American mall trading cheap Russian oil for expensive American LNG and swapping 'Make in India' for 'Buy American' in critical sectors.
 
 The 64% cut is a great headline. But when you factor in the $500 billion bill, the zero-tariff loop for Bangladesh, and the hit to our strategic autonomy, it becomes clear: We didn’t get a discount.
 

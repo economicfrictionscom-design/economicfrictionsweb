@@ -27,7 +27,7 @@ Laxmi Organics Industries, a specialty chemicals manufacturer in Maharashtra, il
 A recent judgment in Italy regarding the Miteni factory saw operators sentenced to accumulated prison time for polluting water for 350,000 people with "forever chemicals". Interestingly, the patents and machinery from that factory have been bought by this firm, which is currently involved in producing those goods. While the firm captures private gains, nearby communities bear the external costs through health risks and declining environmental quality.
 
 ## Case Study 2: Delhi’s Air Pollution
-During winter months, PM2.5 levels in Delhi regularly exceed safe limits—sometimes 10–12 times above the World Health Organization’s recommended thresholds. This results in schools shutting down, offices shifting to hybrid work, and construction activity being temporarily halted.
+During winter months, PM2.5 levels in Delhi regularly exceed safe limits sometimes 10–12 times above the World Health Organization’s recommended thresholds. This results in schools shutting down, offices shifting to hybrid work, and construction activity being temporarily halted.
 
 Economically, pollution functions as an unplanned shock to the urban economy. Labour productivity declines as workers fall sick or reduce outdoor activity, and healthcare costs surge. These losses rarely appear explicitly in GDP figures but are very real on the ground.
 

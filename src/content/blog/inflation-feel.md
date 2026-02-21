@@ -5,7 +5,7 @@ pubDate: 2026-01-12
 heroImage: "/blog-placeholder-2.jpg"
 tags: ["inflation", "economics", "india"]
 ---
-Let's start with what inflation actually means — not in textbook language, but in everyday life.
+Let's start with what inflation actually means not in textbook language, but in everyday life.
 
 Inflation is the general increase in the price level of common goods and services, which indirectly means a reduction in the real value of money over time. Simply put, the same amount of money buys less than it did earlier.
 
@@ -46,6 +46,6 @@ This gap is large enough to create visible stress for middle-income households. 
 Since CPI includes several non-essential items with lower inflation, it often understates the actual cost pressure faced by households. This explains why inflation feels much higher than what headline numbers suggest.
 
 ## Final Thought
-Inflation may be under control statistically, but for households, what truly matters is whether life feels affordable. When essential expenses rise faster than incomes, when prices do not fall back, and when economic growth does not reach everyone equally, inflation continues to feel real — even if the numbers say otherwise.
+Inflation may be under control statistically, but for households, what truly matters is whether life feels affordable. When essential expenses rise faster than incomes, when prices do not fall back, and when economic growth does not reach everyone equally, inflation continues to feel real even if the numbers say otherwise.
 
 ![Graph showing inflation](/inflation/graph.png)
