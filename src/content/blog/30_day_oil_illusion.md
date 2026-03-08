@@ -1,7 +1,7 @@
 ---
 title: "The 30 Day Illusion: The Hormuz Blockade, Washington's Waiver, and India's True Energy Buffer"
 description: "With the US Israel Iran conflict threatening the Strait of Hormuz, panic has set in over India's fuel reserves. A deep dive into the 30 day Russian oil waiver, the 74 day buffer reality, and the repricing of geopolitical risk."
-pubDate: "Mar 09 2026"
+pubDate: "Mar 08 2026"
 heroImage: "/hormuz_buffer.jpg"
 tags: ["Economics", "Macro", "Geopolitics", "Energy"]
 hidden_summary: "In March 2026, an escalating conflict in the Middle East threatened the Strait of Hormuz, pushing Brent crude past $94. Amid panic that India only has 30 days of fuel capacity, the US Treasury issued a temporary 30 day waiver allowing Indian refiners to buy stranded Russian oil. This analysis breaks down the reality of India's 250 million barrel (74 day) strategic and commercial buffer, exposing how energy procurement is being used to prevent a global supply shock while managing domestic inflation."
