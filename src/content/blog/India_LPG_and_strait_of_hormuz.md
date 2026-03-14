@@ -85,6 +85,8 @@ It starts with a cylinder in your kitchen.
 Then it bleeds into inflation.
 And finally, it reaches the balance sheet of the entire country.
 
+![Global energy tension](hormuz_kitchen_crisis.png)
+
 ---
 
 ### Sources & References
