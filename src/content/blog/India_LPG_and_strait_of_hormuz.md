@@ -2,7 +2,7 @@
 title: "Why a geopolitical conflict thousands of miles away is actively emptying your wallet"
 description: "From the Strait of Hormuz to your kitchen: Why a conflict in the Middle East has sent the price of your LPG cylinder surging to ₹2,500."
 pubDate: 2026-03-15
-heroImage: "/hormuz_kitchen_crisis.jpg"
+heroImage: "hormuz_kitchen_crisis.jpg"
 
 tags: ["Economics", "Macro", "Geopolitics", "Inflation"]
 hidden_summary: "As of March 2026, the blockade of the Strait of Hormuz has entered its 15th day. This analysis tracks the ripple effects of the Iran-US-Israel conflict on the Indian household, detailing the breakdown of the LPG supply chain, the rise of the black market, and the long-term macroeconomic damage to India's GDP and real wages."
