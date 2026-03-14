@@ -2,16 +2,16 @@
 title: "Why a geopolitical conflict thousands of miles away is actively emptying your wallet"
 description: "From the Strait of Hormuz to your kitchen: Why a conflict in the Middle East has sent the price of your LPG cylinder surging to ₹2,500."
 pubDate: 2026-03-15
-heroImage: "../../public/hormuz_kitchen_crisis.png"
+heroImage: "/hormuz_kitchen_crisis.jpg"
 
 tags: ["Economics", "Macro", "Geopolitics", "Inflation"]
 hidden_summary: "As of March 2026, the blockade of the Strait of Hormuz has entered its 15th day. This analysis tracks the ripple effects of the Iran-US-Israel conflict on the Indian household, detailing the breakdown of the LPG supply chain, the rise of the black market, and the long-term macroeconomic damage to India's GDP and real wages."
 ---
 
-![Hormuz Crisis](../../public/hormuz_kitchen_crisis.png)
 
 
-"You know what? I am mad at the government. 
+
+You know what? I am mad at the government. 
 
 Reason?
 
@@ -116,4 +116,4 @@ And finally, it reaches the balance sheet of the entire country.
 **5. The Macro Impact**
 * The Economic Times (March 10, 2026): "India may face $7–8 billion higher monthly import bill as crude surges"
 * ICIS / Market News (March 13, 2026): "LPG Shortage & Oil Surge: India's Inflation Risks Rise"
-* Times of India (March 14, 2026): "India's Goldilocks under threat? How US-Iran war, crude oil above $100 may deal a blow to growth story"
+* Times of India (March 14, 2026): "India's Goldilocks under threat? How US-Iran war, crude oil above $100 may deal a blow to growth story
