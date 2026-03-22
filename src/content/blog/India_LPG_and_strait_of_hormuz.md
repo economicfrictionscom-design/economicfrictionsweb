@@ -7,7 +7,7 @@ tags: ["Economics", "Macro", "Geopolitics", "Inflation"]
 hidden_summary: "As of March 2026, the blockade of the Strait of Hormuz has entered its 15th day. This analysis tracks the ripple effects of the Iran-US-Israel conflict on the Indian household, detailing the breakdown of the LPG supply chain, the rise of the black market, and the long-term macroeconomic damage to India's GDP and real wages."
 --- 
 
-"You know what? I am mad at the government.
+You know what? I am mad at the government.
  
 Reason?
  
