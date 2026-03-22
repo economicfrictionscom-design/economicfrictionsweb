@@ -7,7 +7,6 @@ tags: ["Economics", "Macro", "Geopolitics", "Commodities"]
 hidden_summary: "In 2025 and early 2026, gold and silver shattered historical records, driven by massive central bank accumulation, extreme geopolitical anxiety, and severe structural supply deficits. This analysis breaks down why precious metals outperformed broader equities and what it signals for global inflation and fiat currency stability."
 ---
 
-Let's be honest.
 
 If someone told you in early 2024 the trajectory gold and silver were about to take over the next two years, you would have called them a permabear.
 

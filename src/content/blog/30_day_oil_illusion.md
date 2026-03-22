@@ -7,7 +7,6 @@ tags: ["Economics", "Macro", "Geopolitics", "Energy"]
 hidden_summary: "In March 2026, an escalating conflict in the Middle East threatened the Strait of Hormuz, pushing Brent crude past $94. Amid panic that India only has 30 days of fuel capacity, the US Treasury issued a temporary 30 day waiver allowing Indian refiners to buy stranded Russian oil. This analysis breaks down the reality of India's 250 million barrel (74 day) strategic and commercial buffer, exposing how energy procurement is being used to prevent a global supply shock while managing domestic inflation."
 ---
 
-Let's be honest.
 
 It is incredibly easy to look at the global energy map right now and panic.
 
