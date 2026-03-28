@@ -1,7 +1,7 @@
 ---
 title: "The EMI Trap: Why Your Salary Disappears on the First of Every Month"
 description: "How the explosion of easy personal loans and Buy Now Pay Later schemes is creating a massive debt trap for the Indian middle class."
-pubDate: "Apr 05 2026"
+pubDate: "Mar 29 2026"
 heroImage: "/emi_illusion.jpg"
 tags: ["Economics", "Personal Finance", "Debt", "RBI"]
 hidden_summary: "This article breaks down the macroeconomic risk of unsecured retail credit in India. It explains how Buy Now Pay Later schemes create an illusion of affordability, why the RBI is forcing banks to tighten lending, and how accumulating EMIs for depreciating assets destroys wealth generation for young professionals."
