@@ -2,14 +2,11 @@
 title: "The EMI Trap: Why Your Salary Disappears on the First of Every Month"
 description: "How the explosion of easy personal loans and Buy Now Pay Later schemes is creating a massive debt trap for the Indian middle class."
 pubDate: "Mar 29 2026"
-heroImage: "/emi_illusion.jpg"
+heroImage: "/emi_illusion.png"
 tags: ["Economics", "Personal Finance", "Debt", "RBI"]
 hidden_summary: "This article breaks down the macroeconomic risk of unsecured retail credit in India. It explains how Buy Now Pay Later schemes create an illusion of affordability, why the RBI is forcing banks to tighten lending, and how accumulating EMIs for depreciating assets destroys wealth generation for young professionals."
 ---
 
-![The burden of multiple EMIs on a monthly salary](/emi_illusion.jpg)
-
-Let us be completely honest.
 
 You are probably not getting richer. You are just getting access to more debt.
 
@@ -60,6 +57,8 @@ You cannot invest. You cannot build an emergency fund. You cannot absorb an unex
 True wealth is built by buying assets that pay you money over time. The modern EMI culture actively forces you to do the exact opposite. It convinces you to buy goods that lose value immediately, using money you have not even earned yet. 
 
 The next time you see a zero cost EMI offer, remember the basic rule of economics. Nothing is truly zero cost. You are always paying the price, usually with your own future financial freedom.
+
+![The burden of multiple EMIs on a monthly salary](/emi_illusion.png)
 
 ---
 
