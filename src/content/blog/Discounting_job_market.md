@@ -6,7 +6,7 @@ heroImage: "/degree_deflation.png"
 tags: ["Economics", "Careers", "Tech", "Jobs", "Education"]
 hidden_summary: "This article breaks down the macroeconomic concept of Signalling Theory in the modern job market. It uses the recent wave of tech layoffs at companies like Oracle to illustrate how employers are heavily discounting college degrees and shifting toward a Proof of Work hiring model. 
 
-It explores why fresh credentials often fail to clear the market when experienced professionals are being let go, and why execution now trumps academic potential."
+It explores why fresh credentials often fail to clear the market when experienced professionals are being let go, and why execution now trumps academic potential.
 ---
 
 These days even college degrees do not help one secure a job when big companies are laying off thousands of employees who have worked for them and have experience. 
@@ -55,8 +55,6 @@ You are forced to pay a premium price for a signal that employers are heavily di
 
 So, how do you survive a market that does not care about your degree? 
 
-[Image showing the shift from credential based hiring to skills based hiring]
-
 You stop relying on the signal and start relying on **Proof of Work**. 
 
 Employers are tired of guessing. They want undeniable evidence that you can do the job before they hand you an offer letter. 
@@ -68,6 +66,8 @@ Employers are tired of guessing. They want undeniable evidence that you can do t
 The companies surviving this macroeconomic squeeze are forcing candidates to prove their hard technical skills. They do not care where you sat in a classroom: they care what you can actually build today. 
 
 Your university sold you a signal. But in 2026, the only thing that pays the bills is undeniable proof.
+
+(/degree_deflation.png)
 
 ---
 
