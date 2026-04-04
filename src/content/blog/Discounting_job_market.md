@@ -13,6 +13,8 @@ These days even college degrees do not help one secure a job when big companies 
 
 If industry giants like Oracle, Google, and Amazon are ruthlessly letting go of veterans with a decade of expertise, what chance does a fresh graduate with nothing but a certificate actually have? 
 
+![The Degree Inflation Trap](/degree_deflation.png)
+
 Your college degree is acting exactly like a depreciating currency. You are paying a massive premium to acquire it, but the open market is actively deciding it is worth less every single year. This is not just standard corporate cost cutting: it is a structural shift in how the economy values human capital.
 
 Here is the underlying economics of why the job market is broken, why your degree is losing its purchasing power, and what actually matters now.
@@ -57,9 +59,9 @@ You stop relying on the signal and start relying on **Proof of Work**.
 
 Employers are tired of guessing. They want undeniable evidence that you can do the job before they hand you an offer letter. 
 
-* If you are a coder, your GitHub repository is your real degree. 
-* If you are a designer, your live portfolio is your real degree. 
-* If you are a marketer, the audience you built online is your real degree. 
+* **If you are a coder**, your GitHub repository is your real degree. 
+* **If you are a designer**, your live portfolio is your real degree. 
+* **If you are a marketer**, the audience you built online is your real degree. 
 
 The companies surviving this macroeconomic squeeze are forcing candidates to prove their hard technical skills. They do not care where you sat in a classroom: they care what you can actually build today. 
 
