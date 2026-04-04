@@ -1,12 +1,12 @@
 ---
-title: "Why the Job Market Feels Like Discounting Your Degree"
+title: "The Signalling Trap: Why the Job Market is Discounting Your Degree"
 description: "How recent tech layoffs and degree inflation are proving that your expensive college education is acting like a depreciating currency."
 pubDate: "Apr 05 2026"
 heroImage: "/degree_deflation.png"
 tags: ["Economics", "Careers", "Tech", "Jobs", "Education"]
 hidden_summary: "This article breaks down the macroeconomic concept of Signalling Theory in the modern job market. It uses the recent wave of tech layoffs at companies like Oracle to illustrate how employers are heavily discounting college degrees and shifting toward a Proof of Work hiring model. 
 
-It explores why fresh credentials often fail to clear the market when experienced professionals are being let go, and why execution now trumps academic potential.
+It explores why fresh credentials often fail to clear the market when experienced professionals are being let go, and why execution now trumps academic potential."
 ---
 
 These days even college degrees do not help one secure a job when big companies are laying off thousands of employees who have worked for them and have experience. 
@@ -20,8 +20,6 @@ Here is the underlying economics of why the job market is broken, why your degre
 ## 1. The Economics of the Broken Signal
 
 To understand why you are struggling to get a response to your resume, you have to understand an economic concept called **Signalling Theory**.
-
-
 
 Decades ago, a university degree was rare. Because it was rare, it acted as a highly trusted signal to employers. It proved to a company that you were disciplined, capable of learning, and smart enough to clear a difficult academic barrier. The company did not need to test you extensively: the degree did the talking. 
 
@@ -66,8 +64,6 @@ Employers are tired of guessing. They want undeniable evidence that you can do t
 The companies surviving this macroeconomic squeeze are forcing candidates to prove their hard technical skills. They do not care where you sat in a classroom: they care what you can actually build today. 
 
 Your university sold you a signal. But in 2026, the only thing that pays the bills is undeniable proof.
-
-(/degree_deflation.png)
 
 ---
 
