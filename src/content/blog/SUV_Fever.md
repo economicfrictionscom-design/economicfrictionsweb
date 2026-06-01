@@ -2,7 +2,7 @@
 title: "Elephants on Tarkol: How the 20-Lakh SUV Fuels the Market but Fractures the Economy "
 description: "A data-verified, long-form investigation into May 2026's defining automotive story: how booming incomes put heavier cars on roads built for a different era, fracturing the spare parts market, triggering a fuel revolution, and shrinking brand variety to a corporate oligopoly."
 pubDate: "June 01 2026"
-heroImage: "/Reciprocal_Tariff.png"
+heroImage: "National_highway_expansion.jpeg"
 tags: ["Macroeconomics", "Automotive", "Infrastructure", "Consumer Behavior", "India"]
 hidden_summary: "The Indian automotive market is experiencing a profound systemic lag. While drastic increases in annual household income have shifted consumer preferences toward heavy, premium SUVs, public infrastructure has failed to keep pace. This structural friction is driving up vehicle wear and tear, fueling a booming $12 billion aftermarket industry laced with counterfeit parts, and forcing a fractured pivot toward CNG and range-anxious EVs -while killing brand variety on the road."
 ---
