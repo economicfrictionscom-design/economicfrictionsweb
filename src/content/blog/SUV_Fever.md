@@ -18,7 +18,9 @@ That same feeling no longer exists as cars transitioned from being *“mode of t
 Stand at any urban intersection in India in **May 2026**, be it Pune's FC Road, Bengaluru's Outer Ring Road, Delhi's Noida Expressway, or even a second-ring road in Indore or Surat and what you see is not a traffic problem. It is a mismatch between the newer, heavier, bulkier cars and the old “tarkol” roads and from that single, structural gap between private wealth and public infrastructure, an entire chain reaction unfolds one that touches your maintenance bill, your fuel choice, the spare parts market, and the very brands that can survive on Indian tarmac.
 
 This is the story of that chain reaction. Economists call it **systemic lag**. The rest of us just call it *getting stuck in a pothole*.
-!(/Executive_summary_metrics.jpeg)
+
+![](/Executive_summary_metrics.jpeg)
+
 ## The Infrastructure getting stuck as Roads Built for the India of 1990
 
 To understand the scale of the mismatch, you have to appreciate the engineering logic behind how Indian urban roads were built in the first place.
@@ -28,7 +30,8 @@ The **Indian Roads Congress (IRC)** is the apex technical body that governs road
 Now here is the blockage: the majority of urban and sub-urban roads that still exist under Indian wheels today were laid or last fundamentally reconstructed in a specific era with a specific vehicle assumption baked in which tends to fail when considering today’s enhancement in the automotive industry.
 
 In **2006**, India had approximately **8 cars per 1,000 people** with **65%** of them being hatchbacks like the Maruti 800 (launched 1983), the Alto, the Santro, the WagonR  all bearing the weight between **650 kg and 900 kg**. This featherweight fleet defined the design parameters of municipal road construction for decades. These roads were not designed to fail. They were designed to serve a population that drove small, light, fuel-efficient vehicles that imposed modest loads on bituminous layers. The pavement thickness, subgrade preparation standards, and bituminous mix designs were calibrated for the older India.
-!(/National_highway_expansion.jpeg)
+
+![](/National_highway_expansion.jpeg)
 
 What changed was everything except the roads.
 
